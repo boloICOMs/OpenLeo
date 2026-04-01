@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Leo</title>
+    <meta name="description" content="Explore the digital edition of Codex in Open Leo.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="item-page">
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo.png" alt="Open Leo Logo">
+            <div class="logo-text">
+                <span>Open-Leo</span>
+            </div>
+        </a>
+        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">the project</a></li>
+            <li><a href="collection.html">the collection</a></li>
+            <li><a href="docu.html">the documentation</a></li>
+        </ul>
+    </nav>
+    <main class="container fade-in">
+        <section class="hero">
+            <h1>Codex on the flight of birds</h1>
+            <p class="subtitle">SDE, diplomatic trascription and virtual representation of the manuscript</p>
+        </section>
+
+        <!-- Manuscript & Transcription Viewer -->
+        <section class="viewer-container">
+            <div class="manuscript-viewer">
+                <div class="manuscript-image-wrapper">
+                    <!-- Placeholder using the Austen manuscript image if available -->
+                    <img id="manuscript-img" src="img/collection/persuasion.jpg" alt="Manuscript Page">
+                </div>
+                <div class="page-controls">
+                    <button id="prev-btn" class="btn-page" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous Page
+                    </button>
+                    <button id="next-btn" class="btn-page">
+                        Next Page <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="viewer-actions">
+                    <a href="https://www.loc.gov/item/2021668201/manifest.json" class="btn-action btn-iiif">
+                        <i class="fas fa-link"></i> IIIF Manifest
+                    </a>
+                </div>
+                <div class="viewer-actions">
+                    <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+                    <a href="#" class="btn-action btn-iiif">View Manuscript in Mirador</a>
+                </div>
+            </div>
+
+            <div class="transcription-box">
+                <div class="transcription-title">Transcription: Folio <span id="page-num">1</span></div>
+                <div id="transcription-text" class="transcription-content">
+                    <p>On the study of light and shade...</p>
+                    <p>The codex details the nature of perspective and anatomy. It is a work of continuous observation.
+                        Herein we chart the observations as noted in the original manuscript.</p>
+                    <p>Observations on the movement of water and mechanics are also gathered together in this
+                        collection, revealing a mind dedicated to endless inquiry.</p>
+                </div>
+                <div class="viewer-actions">
+                    <a href="#" class="btn-action btn-xml">
+                        <i class="fas fa-download"></i> Download TEI-XML
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metadata Section -->
+        <section class="metadata-section">
+            <h2>Metadata</h2>
+            <div class="metadata-list">
+                <div class="metadata-item">
+                    <span class="metadata-label">Title</span>
+                    <span class="metadata-value">Codex on the fight of birds</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Author</span>
+                    <span class="metadata-value">Leonardo Da vinci</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Created</span>
+                    <span class="metadata-value">1505/1506</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Type & Format</span>
+                    <span class="metadata-value"> Paper Manuscript, 18 folios</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Renaiassence Italian</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Location</span>
+                    <span class="metadata-value">Biblioteca Reale di Torino</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Media Section -->
+        <section class="related-media-section carousel-section">
+            <h2>Related Media</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow prev" id="carousel-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-container" id="media-carousel">
+                    <a href="https://artsandculture.google.com/story/codice-sul-volo-degli-uccelli/MwXRkD4q9e99Ig?hl=en" target="_blank" class="media-box">
+                        <img src="img/GoogleA&C.png" alt="GoogleA&C">
+                        <div class="media-box-text">Google Arts & Culture</div>
+                    </a>
+                    <a href="https://www.leonardo-to-mars.com/index.php/it/il-codice-del-volo.html" target="_blank" class="media-box">
+                        <img src="img/leoMarte.png" alt="Marte">
+                        <div class="media-box-text">Leonardo a Marte</div>
+                    </a>
+                    <a href="https://airandspace.si.edu/exhibitions/leonardo-da-vincis-codex-flight-birds" target="_blank" class="media-box">
+                        <img src="img/smithsonian.png" alt="smithsonian">
+                        <div class="media-box-text">Smithsonian Air and Space museum</div>
+                    </a>
+                    <a href="https://www.loc.gov/item/2021668201" target="_blank" class="media-box">
+                        <img src="img/LOC.jpg" alt="LOC">
+                        <div class="media-box-text">Library of Congress</div>
+                    </a>
+                    <a href="https://brunelleschi.imss.fi.it/menteleonardo/imdl.asp?c=13419&k=23343&rif=23348&xsl=1" target="_blank" class="media-box">
+                        <img src="img/mgalileo.png" alt="museo galileo">
+                        <div class="media-box-text">Museo Galileo</div>
+                    </a>
+                </div>
+                <button class="carousel-arrow next" id="carousel-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="fade-in">
+        <div class="footer-content">
+            <a href="https://github.com/boloICOMs/OpenLeo" class="github-link">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <p class="copyright"> All copyrights and related rights remain with their original owners &copy; 2026 Open Leo</p>
+            <p class="license-text">This digital library is an academic prototype developed for educational purposes.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Open Leo</title>
+    <meta name="description" content="Browse the digital collection of Open Leo works.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="collection-page">
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="img/logo.png" alt="Open Leo Logo">
+            <div class="logo-text">
+                <span>Open-Leo</span>
+            </div>
+        </a>
+        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">the project</a></li>
+            <li><a href="collection.html">the collection</a></li>
+            <li><a href="docu.html">the documentation</a></li>
+        </ul>
+    </nav>
+    <main class="container fade-in">
+        <section class="hero">
+            <h1>The Digital Collection</h1>
+            <p class="subtitle">A repository of open codices.</p>
+        </section>
+        <section class="search-section">
+            <input type="text" class="search-bar" placeholder="Search for a codex...">
+        </section>
+        <section class="collection-grid">
+            <!-- Card 1: Codex Volo uccelli-->
+            <a href="codex.html" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/codexVoloUccelli.jpg" alt="Codex-volo-uccelli">
+                </div>
+                <div class="card-caption">
+                    <h4>Codex on the flight of birds</h4>
+                </div>
+            </a>
+            <!-- Keep more cards if needed, placeholder to show it's a collection -->
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/CAtlantico.png" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Codex Atlanticus</h4>
+                </div>
+            </a>
+
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/CForster.jpg" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Codex Forster</h4>
+                </div>
+            </a>
+
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/CMadrid.jpg" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Codex Madrid</h4>
+                </div>
+            </a>
+
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/Ctrivulzianus.png" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Codex Trivulzianus</h4>
+                </div>
+            </a>
+
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/trattatoPitt.jpg" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Treatise of Painting</h4>
+                </div>
+            </a>
+
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/anatomic.jpg" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Anatomical Drawings at Windsor</h4>
+                </div>
+            </a>
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/geographicalC.jpg" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Geographical Drawings at Windsor</h4>
+                </div>
+            </a>
+
+            <a href="#" class="collection-card">
+                <div class="card-image-wrapper">
+                    <img src="img/CLeicester.jpg" alt="Other Manuscripts">
+                </div>
+                <div class="card-caption">
+                    <h4>Codex Leicesteir</h4>
+                </div>
+            </a>
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <a href="https://github.com/boloICOMs/OpenLeo" class="github-link">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <p class="copyright"> All copyrights and related rights remain with their original owners &copy; 2026 Open Leo</p>
+            <p class="license-text">This digital library is an academic prototype developed for educational purposes.
+            </p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
