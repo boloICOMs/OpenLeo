@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Technique Classifier</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Bangers&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Pinyon+Script&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav class="top-navbar">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="ATC Logo" class="nav-logo">
+        <a href="{{ url_for('info') }}" class="info-link" title="Informazioni sul Progetto">
+            <i class="ph ph-info"></i>
+        </a>
+    </nav>
+    <div class="page-wrapper">
+        <div class="main-container">
+            <header class="app-header center-text">
+                <h1>Art Technique Classifier</h1>
+                <p class="subtitle">The AI model that recognizes the technique behind the most famous artworks.</p>
+            </header>
+
+            <div class="upload-section img-container" id="drop-area">
+                <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+                <div id="imagePreview"></div>
+            
+                <div class="upload-instructions" id="uploadText">
+                    <i class="ph ph-upload-simple"></i>
+                    <p>Click or drag in the image of a work of art</p>
+                </div>
+            </div>
+
+            <div class="action-section center-text">
+                <button onclick="uploadAndPredict()" id="btn-predict">
+                    <i class="ph ph-sparkle"></i> Analyze
+                </button>
+            </div>
+
+            {% if examples %}
+            <div class="examples-section">
+                <h3><i class="ph ph-image"></i> Try with the examples</h3>
+                <div class="examples-grid-container">
+                    <div class="examples-grid">
+                        {% for ex in examples %}
+                        <div class="example-item"
+                            onclick="selectExample(`{{ url_for('serve_examples', filename=ex.path) }}`)"
+                            draggable="true"
+                            ondragstart="handleDragStart(event, `{{ url_for('serve_examples', filename=ex.path) }}`)">
+                            <img src="{{ url_for('serve_examples', filename=ex.path) }}" alt="{{ ex.class }}">
+                            <span class="example-label">{{ ex.class }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div id="resultCard" class="hidden result-card">
+                <div class="result-header">
+                    <h2>Results</h2>
+                    <p>Here you can find the top-5 probabilities predicted by the model. <br /> The model has
+                        a global accuracy of 93% and on average 89% per category (Macro F1). <br />
+                        Be aware that the model can make mistakes.</p>
+                </div>
+
+                <div class="result-grid">
+                    <div id="predictionsList" class="result-box">
+                        <h3><i class="ph ph-list-numbers"></i> Top 5 Probabilities:</h3>
+                        <ul id="top5-list"></ul>
+                    </div>
+
+                    <div id="gradcamContainer" class="result-box">
+                        <h3><i class="ph ph-eye"></i> Heatmap (Grad-CAM):</h3>
+                        <div class="heatmap-img-wrapper">
+                            <img id="gradcam-img" src="" width="350">
+                        </div>
+                        <p class="heatmap-legend">
+                            <i class="ph ph-info"></i> <small>The red areas indicate the areas which mainly influenced
+                                the model prediction.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // drag and drop 
+        const dropArea = document.getElementById('drop-area');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.classList.add('dragover'), false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.classList.remove('dragover'), false);
+        });
+
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDragStart(e, url) {
+            e.dataTransfer.setData('text/plain', url);
+        }
+
+        async function selectExample(url) {
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const file = new File([blob], "example.jpg", { type: blob.type });
+
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                document.getElementById('imageInput').files = dataTransfer.files;
+
+                const event = new Event('change');
+                document.getElementById('imageInput').dispatchEvent(event);
+
+                document.getElementById('drop-area').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (error) {
+                console.error("Errore nel caricamento dell'esempio", error);
+                alert("Impossibile caricare l'immagine di esempio.");
+            }
+        }
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+
+            if (dt.files && dt.files.length > 0) {
+                document.getElementById('imageInput').files = dt.files;
+                const event = new Event('change');
+                document.getElementById('imageInput').dispatchEvent(event);
+            } else {
+                const url = dt.getData('text/plain');
+                if (url) {
+                    selectExample(url);
+                }
+            }
+        }
+
+        // send the image to Flask
+        async function uploadAndPredict() {
+            const fileInput = document.getElementById('imageInput');
+            if (fileInput.files.length === 0) return alert("Seleziona prima un'immagine!");
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            const btn = document.getElementById('btn-predict');
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<i class="ph ph-spinner ph-spin"></i> Analyzing...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch('/predict', { method: 'POST', body: formData });
+                const data = await response.json();
+
+                if (data.error) {
+                    alert(data.error);
+                    btn.innerHTML = originalContent;
+                    btn.disabled = false;
+                    return;
+                }
+
+                // show results
+                const resultCard = document.getElementById('resultCard');
+                resultCard.classList.remove('hidden');
+
+                
+                setTimeout(() => resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+
+              
+                const listElement = document.getElementById('top5-list');
+                listElement.innerHTML = ""; // Svuota la vecchia lista
+
+                data.top_predictions.forEach((p, index) => {
+                    const li = document.createElement('li');
+
+                    if (index === 0) {
+                        li.innerHTML = `<span class="class-name winner">${p.class.toUpperCase()}</span> <span class="confidence winner">${p.confidence}</span>`;
+                        li.classList.add('winner-item');
+                    } else {
+                        li.innerHTML = `<span class="class-name">${p.class}</span> <span class="confidence">${p.confidence}</span>`;
+                    }
+                    listElement.appendChild(li);
+                });
+
+                // shows grad-cam image
+                const gradcamImg = document.getElementById('gradcam-img');
+                gradcamImg.src = "data:image/jpeg;base64," + data.gradcam_image;
+
+            } catch (err) {
+                alert("Si è verificato un errore durante l'analisi.");
+                console.error(err);
+            } finally {
+                btn.innerHTML = '<i class="ph ph-check-circle"></i> Analysis completed';
+                btn.disabled = false;
+
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                }, 3000);
+            }
+        }
+
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output = document.getElementById('imagePreview');
+                output.innerHTML = `<img src="${reader.result}" alt="Preview">`;
+
+                // Nascondi testo e icona
+                const uploadText = document.getElementById('uploadText');
+                if (uploadText) uploadText.style.display = "none";
+
+                const dropArea = document.getElementById('drop-area');
+                dropArea.classList.add('has-image');
+            };
+            if (event.target.files && event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+
+       
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.top-navbar');
+
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                // Se si scorre in basso, nascondi la navbar (tolleranza 50px)
+                navbar.classList.add('hidden-nav');
+            } else {
+                // Se si scorre in alto o si è in cima, mostra la navbar
+                navbar.classList.remove('hidden-nav');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    </script>
+</body>
+
+</html>
