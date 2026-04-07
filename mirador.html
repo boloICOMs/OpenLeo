@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirador Viewer | OpenLeo</title>
+    <style>
+        /* Ensures the viewer fills the entire new browser tab */
+        body, html, #mirador-container { 
+            margin: 0; 
+            padding: 0; 
+            width: 100vw; 
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="mirador-container"></div>
+
+    <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+
+    <script>
+        
+        const params = new URLSearchParams(window.location.search);
+        const manifestUrl = params.get('manifest');
+
+        if (manifestUrl) {
+            // We initialize Mirador directly with the LOC IIIF URL
+            Mirador.viewer({
+                id: 'mirador-container',
+                windows: [{
+                    manifestId: manifestUrl,
+                    viewType: 'BookView'
+                }],
+                window: {
+                    allowClose: false,
+                    allowMaximize: false,
+                    sideBarOpenByDefault: false
+                },
+                workspace: {
+                    type: 'mosaic', // Best for single or double window viewing
+                },
+                workspaceControlPanel: {
+                    enabled: false,
+                }
+            });
+        } else {
+            document.getElementById('mirador-container').innerHTML = 
+                "<h2 style='color:white; text-align:center; padding-top:20%;'>No Manuscript Manifest Found.</h2>";
+        }
+    </script>
+</body>
+</html>
