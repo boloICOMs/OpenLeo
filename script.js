@@ -95,21 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 pageNum: 1,
                 img: "img/persuasion/p.1.jpg",
                 facs: "#facs_1"
-            },
-            {
-                pageNum: 3,
-                img: "img/persuasion/p.3.jpg",
-                facs: "#facs_3"
-            },
-            {
-                pageNum: 14,
-                img: "img/persuasion/p.14.jpg",
-                facs: "#facs_14"
-            },
-            {
-                pageNum: 15,
-                img: "img/persuasion/p.15.jpg",
-                facs: "#facs_15"
             }
         ];
 
@@ -119,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
         async function initTranscription() {
             try {
                 const [xmlResponse, xslResponse] = await Promise.all([
-                    fetch('persuasion.xml'),
-                    fetch('persuasion.xsl')
+                    fetch('p.xml'),
+                    fetch('p.xsl')
                 ]);
                 const xmlText = await xmlResponse.text();
                 const xslText = await xslResponse.text();
