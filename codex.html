@@ -6,12 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Leo</title>
     <meta name="description" content="Explore the digital edition of Codex in Open Leo.">
+
+
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpg" href="img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body class="item-page">
@@ -43,13 +51,16 @@
         <section class="viewer-container">
             <div class="manuscript-viewer">
                 <div class="manuscript-image-wrapper">
-                    <!-- Placeholder using the Austen manuscript image if available -->
+
                     <img id="manuscript-img" src="img/collection/persuasion.jpg" alt="Manuscript Page">
                 </div>
                 <div class="page-controls">
                     <button id="prev-btn" class="btn-page" disabled>
                         <i class="fas fa-chevron-left"></i> Previous Page
                     </button>
+
+                    <button id="mirror-btn" class="btn-page">Reflect</button>
+
                     <button id="next-btn" class="btn-page">
                         Next Page <i class="fas fa-chevron-right"></i>
                     </button>
@@ -60,20 +71,35 @@
                     </a>
                 </div>
                 <div class="viewer-actions">
-                    <a href="mirador.html?manifest=https://www.loc.gov/iiif/resources/item/2021668201/manifest.json" 
-                    target="_blank" 
-                    class="btn-action btn-iiif"> View Manuscript in Mirador</a>
+                    <a href="mirador.html?manifest=https://www.loc.gov/iiif/resources/item/2021668201/manifest.json"
+                        target="_blank" class="btn-action btn-iiif"> View Manuscript in Mirador</a>
                 </div>
             </div>
 
+
             <div class="transcription-box">
+                <div class="edition-selector">
+                    <!--select the edition -->
+                    <select id="view-select">
+                        <option value="diplomatic">Diplomatic Edition</option>
+                        <option value="critical">Critical Edition (Marinoni)</option>
+                    </select>
+                </div>
                 <div class="transcription-title">Transcription: Folio <span id="page-num">1</span></div>
-                <div id="transcription-text" class="transcription-content">
-                    <p>On the study of light and shade...</p>
-                    <p>The codex details the nature of perspective and anatomy. It is a work of continuous observation.
-                        Herein we chart the observations as noted in the original manuscript.</p>
-                    <p>Observations on the movement of water and mechanics are also gathered together in this
-                        collection, revealing a mind dedicated to endless inquiry.</p>
+                <div id="transcription-text" class="transcription-content cormorant-garamond"></div>
+                <!-- apparatus -->
+                <div class="apparatus-accordion">
+                    <button class="apparatus-toggle" id="apparatus-toggle" aria-expanded="false"
+                        aria-controls="apparatus-body">
+                        <span>Apparatus</span>
+                        <i class="fas fa-chevron-down apparatus-icon"></i>
+                    </button>
+                    <div class="apparatus-body" id="apparatus-body" role="region" aria-labelledby="apparatus-toggle">
+                        <div class="apparatus-content">
+                            <p>the apparatus</p>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="viewer-actions">
                     <a href="#" class="btn-action btn-xml">
@@ -122,15 +148,18 @@
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <div class="carousel-container" id="media-carousel">
-                    <a href="https://artsandculture.google.com/story/codice-sul-volo-degli-uccelli/MwXRkD4q9e99Ig?hl=en" target="_blank" class="media-box">
+                    <a href="https://artsandculture.google.com/story/codice-sul-volo-degli-uccelli/MwXRkD4q9e99Ig?hl=en"
+                        target="_blank" class="media-box">
                         <img src="img/GoogleA&C.png" alt="GoogleA&C">
                         <div class="media-box-text">Google Arts & Culture</div>
                     </a>
-                    <a href="https://www.leonardo-to-mars.com/index.php/it/il-codice-del-volo.html" target="_blank" class="media-box">
+                    <a href="https://www.leonardo-to-mars.com/index.php/it/il-codice-del-volo.html" target="_blank"
+                        class="media-box">
                         <img src="img/leoMarte.png" alt="Marte">
                         <div class="media-box-text">Leonardo a Marte</div>
                     </a>
-                    <a href="https://airandspace.si.edu/exhibitions/leonardo-da-vincis-codex-flight-birds" target="_blank" class="media-box">
+                    <a href="https://airandspace.si.edu/exhibitions/leonardo-da-vincis-codex-flight-birds"
+                        target="_blank" class="media-box">
                         <img src="img/smithsonian.png" alt="smithsonian">
                         <div class="media-box-text">Smithsonian Air and Space museum</div>
                     </a>
@@ -138,7 +167,8 @@
                         <img src="img/LOC.jpg" alt="LOC">
                         <div class="media-box-text">Library of Congress</div>
                     </a>
-                    <a href="https://brunelleschi.imss.fi.it/menteleonardo/imdl.asp?c=13419&k=23343&rif=23348&xsl=1" target="_blank" class="media-box">
+                    <a href="https://brunelleschi.imss.fi.it/menteleonardo/imdl.asp?c=13419&k=23343&rif=23348&xsl=1"
+                        target="_blank" class="media-box">
                         <img src="img/mgalileo.png" alt="museo galileo">
                         <div class="media-box-text">Museo Galileo</div>
                     </a>
@@ -155,7 +185,8 @@
             <a href="https://github.com/boloICOMs/OpenLeo" class="github-link">
                 <i class="fa-brands fa-github"></i>
             </a>
-            <p class="copyright"> All copyrights and related rights remain with their original owners &copy; 2026 Open Leo</p>
+            <p class="copyright"> All copyrights and related rights remain with their original owners &copy; 2026 Open
+                Leo</p>
             <p class="license-text">This digital library is an academic prototype developed for educational purposes.
             </p>
         </div>
