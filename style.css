@@ -129,16 +129,85 @@ h6 {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* Notebook Bookmarks Style */
+.notebook-bookmarks {
+    position: absolute;
+    top: -40px;
+    /* Sporgono sopra il box */
+    left: 20px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+
+.bookmark {
+    border: none;
+    padding: 8px 20px;
+    font-family: 'Charm', cursive;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.3s ease;
+
+    position: relative;
+    background-color: #b5946a;
+    /* Colore base "pelle/carta" */
+    color: #4E0B0B;
+}
+
+.bookmark.diplomatic {
+    background-color: #c4a47c;
+}
+
+.bookmark.critical {
+    background-color: #a6855b;
+}
+
+.bookmark:hover {
+    transform: translateY(-3px);
+
+}
+
+.bookmark.active {
+    background-color: #d2b48c !important;
+    /* Stesso colore del box */
+    color: #4E0B0B;
+    padding-top: 15px;
+    top: 1px;
+    /* Si sovrappone esattamente al bordo del box */
+    box-shadow: none;
+
+    border-bottom: 2px solid #d2b48c !important;
+    /* Copre la linea nera del box sottostante */
+    z-index: 11;
+    /* Sta sopra il bordo del box */
+}
+
+/* Rimuoviamo lo pseudo-elemento dopo che creava disturbo */
+.bookmark.active::after {
+    display: none;
+}
+
+/* Transcription box adjustments */
 .item-page .transcription-box {
     background-color: #d2b48c;
-    color: var(--bg-pearl);
-    border: 1px solid rgba(233, 225, 211, 0.1);
-    width: fit-content;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    color: var(--brand-navy);
+    width: 600px;
+    /* Larghezza contenuta come richiesto */
+    max-width: 100%;
     min-height: 800px;
     padding: 0;
+    position: relative;
+    overflow: visible !important;
+}
+
+.transcription-scroll-area {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    /* Padding per leggibilità */
+    box-sizing: border-box;
 }
 
 #folio-1r {
@@ -639,6 +708,8 @@ nav.nav-hidden {
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     background-color: #f4eee1;
+    position: relative;
+    /* Added for highlight positioning */
 }
 
 .manuscript-viewer img {
@@ -674,8 +745,6 @@ nav.nav-hidden {
 .transcription-box {
     flex: 0 1 auto;
     padding: 20px !important;
-
-
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 43, 78, 0.05);
     border: 1px solid rgba(0, 43, 78, 0.1);
@@ -901,15 +970,109 @@ nav.nav-hidden {
 
 }
 
-ì .critical-mode .transcription-container {
-    display: block !important;
+.critical-mode .transcription-container {
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
 }
 
 
+
+
+.critical-mode .column-right-1v {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: unset !important;
+    margin-top: 0 !important;
+}
+
+.critical-mode .column-left-1v {
+    display: contents !important;
+}
+
+.critical-mode .column-left-1v>p {
+    order: 2 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.critical-figure-caption {
+    width: 100% !important;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    padding: 10px 0 !important;
+    margin: 10px 0 !important;
+    display: block !important;
+    color: #4E0B0B;
+
+}
+
+.critical-mode .column-left-1v>.critical-figure-caption {
+    order: 2 !important;
+}
+
+.critical-mode .column-right-1v>.critical-figure-caption {
+    order: -1 !important;
+}
+
+.critical-mode .column-right-1v>.critical-note-text {
+    order: -2 !important;
+    display: block !important;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #4E0B0B;
+}
+
+.tei-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    margin: 30px 0 10px 0;
+    color: #4E0B0B;
+    display: block;
+}
+
 .critical-linear-text img,
 .critical-linear-text .leonardo-figure {
     display: none !important;
+}
+
+/* Linearization for pages 2v, 3r, 3v in critical mode */
+.critical-mode .aligned-text {
+    margin-left: 0 !important;
+}
+
+.critical-mode .figure-with-text {
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+.critical-mode .text-column {
+    margin-top: 10px !important;
+}
+
+.critical-mode #weights {
+    width: 100% !important;
+    margin-left: 0 !important;
+}
+
+.critical-mode #margin-top-3r,
+.critical-mode #margin-top-3v {
+    margin-top: 10px !important;
+}
+
+.critical-mode .column-right-3v {
+    order: 1 !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    min-width: unset !important;
+}
+
+.critical-mode .fig-text-alt {
+    order: 2 !important;
+    margin-top: 10px !important;
 }
 
 /* page 1v */
@@ -1100,6 +1263,10 @@ nav.nav-hidden {
 #diamond {
     width: 300px;
     margin-left: 100px;
+}
+
+.critical-mode #diamond {
+    display: none !important;
 }
 
 #weights {
@@ -1750,6 +1917,30 @@ del {
     border-radius: 3px;
 }
 
+
+#iframe {
+    background-color: #d2b48c;
+    color: var(--brand-navy);
+    font-size: 22px;
+    border-radius: 10px;
+    width: 700px;
+    max-width: 90%;
+    margin: 50px auto;
+    /* Centra il blocco nella pagina */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    font-family: 'Garamond', serif !important;
+
+}
+
+#iframe iframe {
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
 /* ============================================================
    TRANSCRIPTION KEY
    ============================================================ */
@@ -2388,4 +2579,24 @@ footer {
 .btn-iiif,
 .btn-xml {
     font-family: 'Playfair Display', serif !important;
+}
+
+/* ============================================================
+   IMAGE HIGHLIGHT OVERLAY
+   ============================================================ */
+.image-highlight {
+    position: absolute;
+    background-color: rgba(78, 11, 11, 0.2);
+    pointer-events: none;
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.critical-figure-caption {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.critical-figure-caption:hover {
+    background-color: rgba(78, 11, 11, 0.1);
 }

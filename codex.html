@@ -78,26 +78,27 @@
 
 
             <div class="transcription-box">
-                <div class="edition-selector">
-                    <!--select the edition -->
-                    <select id="view-select">
-                        <option value="diplomatic">Diplomatic Edition</option>
-                        <option value="critical">Critical Edition (Marinoni)</option>
-                    </select>
+                <!-- Notebook Bookmarks -->
+                <div class="notebook-bookmarks">
+                    <button class="bookmark diplomatic active" data-value="diplomatic">Diplomatic edition</button>
+                    <button class="bookmark critical" data-value="critical">Critical edition</button>
                 </div>
-                <div class="transcription-title">Transcription: Folio <span id="page-num">1</span></div>
-                <div id="transcription-text" class="transcription-content cormorant-garamond"></div>
-                <!-- apparatus -->
-                <div class="apparatus-accordion">
-                    <button class="apparatus-toggle" id="apparatus-toggle" aria-expanded="false"
-                        aria-controls="apparatus-body">
-                        <span>Apparatus</span>
-                        <i class="fas fa-chevron-down apparatus-icon"></i>
-                    </button>
-                    <div class="apparatus-body" id="apparatus-body" role="region" aria-labelledby="apparatus-toggle">
-                        <div class="apparatus-content">
-                            <p>the apparatus</p>
+                <div class="transcription-scroll-area">
+                    <div class="transcription-title">Transcription: Folio <span id="page-num">1</span></div>
+                    <div id="transcription-text" class="transcription-content cormorant-garamond"></div>
+                    <!-- apparatus -->
+                    <div class="apparatus-accordion">
+                        <button class="apparatus-toggle" id="apparatus-toggle" aria-expanded="false"
+                            aria-controls="apparatus-body">
+                            <span>Apparatus</span>
+                            <i class="fas fa-chevron-down apparatus-icon"></i>
+                        </button>
+                        <div class="apparatus-body" id="apparatus-body" role="region"
+                            aria-labelledby="apparatus-toggle">
+                            <div class="apparatus-content">
+                                <p>the apparatus</p>
 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,6 +109,12 @@
                 </div>
             </div>
         </section>
+
+        <div id="iframe">
+            <p>Discover what the text is about through the most frequent occurrences of words.</p>
+            <iframe style='width: 506px; height: 344px;'
+                src='https://voyant-tools.org/tool/Cirrus/?visible=100&corpus=e772f27b3a85ad6bd7f78451ba7a98fd'></iframe>
+        </div>
 
         <!-- Metadata Section -->
         <section class="metadata-section">

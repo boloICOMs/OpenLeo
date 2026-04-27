@@ -119,33 +119,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 codexXml = parser.parseFromString(xmlText, 'text/xml');
                 codexXsl = parser.parseFromString(xslText, 'text/xml');
 
+                // Check for parsing errors
+                const parserErrorElements = codexXml.getElementsByTagName('parsererror');
+                if (parserErrorElements.length > 0) {
+                    const errorMsg = parserErrorElements[0].textContent || 'Unknown XML parsing error';
+                    console.error('XML PARSING ERROR:', errorMsg);
+                }
+
                 const pages = [];
                 const teiNS = 'http://www.tei-c.org/ns/1.0';
                 const xmlNS = 'http://www.w3.org/XML/1998/namespace';
 
-                const pbElements = codexXml.getElementsByTagNameNS(teiNS, 'pb');
-                const surfaceElements = codexXml.getElementsByTagNameNS(teiNS, 'surface');
+                // Get all pb elements - try multiple methods
+                let pbElements = Array.from(codexXml.getElementsByTagName('pb'));
+
+                // Get all surface elements - try multiple methods
+                let surfaceElements = Array.from(codexXml.getElementsByTagName('surface'));
+
+                console.log(`Found ${pbElements.length} pb elements and ${surfaceElements.length} surface elements`);
 
                 const surfaceMap = {};
                 for (let surface of surfaceElements) {
-                    const id = surface.getAttributeNS(xmlNS, 'id') || surface.getAttribute('xml:id');
-                    const graphic = surface.getElementsByTagNameNS(teiNS, 'graphic')[0];
-                    if (id && graphic) surfaceMap[id] = graphic.getAttribute('url');
+                    let id = surface.getAttribute('xml:id');
+                    if (!id) {
+                        id = surface.getAttribute('id');
+                    }
+
+                    let graphic = surface.getElementsByTagName('graphic')[0];
+
+                    if (id && graphic) {
+                        const url = graphic.getAttribute('url');
+                        surfaceMap[id] = url;
+                        console.log(`✓ Mapped surface ${id}`);
+                    }
                 }
+
+                console.log(`Surface map: ${Object.keys(surfaceMap).join(', ')}`);
+
+
 
                 for (let pb of pbElements) {
                     const facsAttr = pb.getAttribute('facs');
+                    const pageNum = pb.getAttribute('n');
                     if (facsAttr) {
-                        const facsId = facsAttr.replace('#', '');
+                    const facsId = facsAttr.replace('#', '');
                         if (surfaceMap[facsId]) {
                             pages.push({
-                                pageNum: pb.getAttribute('n'),
+                                pageNum: pageNum,
                                 img: surfaceMap[facsId],
                                 facs: '#' + facsId
                             });
+                            console.log(`✓ Added page ${pageNum}`);
+                        } else {
+                            console.warn(`✗ Surface ${facsId} not in map for page ${pageNum}`);
                         }
                     }
                 }
+
+                console.log(`✓ Total pages loaded: ${pages.length}`);
 
                 if (pages.length > 0) {
                     manuscriptPages = pages;
@@ -172,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (view === 'critical') {
                 if (apparatusSection) apparatusSection.style.display = 'block';
-                updateApparatus();
+                updateApparatus(facsId);
 
                 // --- MODIFICHE QUI ---
                 transcriptionText.style.display = 'block';      // Forza il contenitore a essere un blocco verticale
@@ -193,30 +224,148 @@ document.addEventListener('DOMContentLoaded', () => {
                 transcriptionText.classList.remove('critical-mode');
             }
 
-            return tempDiv.innerHTML;
+            const content = tempDiv.innerHTML;
+
+            // Wait for the next tick to ensure DOM is updated
+            setTimeout(() => {
+                attachHighlightListeners();
+            }, 0);
+
+            return content;
+        }
+
+        /* --- New: Figure Highlight Logic --- */
+        function attachHighlightListeners() {
+            const captions = document.querySelectorAll('.critical-figure-caption');
+            const wrapper = document.querySelector('.manuscript-image-wrapper');
+
+            if (!wrapper) return;
+
+            captions.forEach(caption => {
+                const region = caption.getAttribute('data-region');
+                if (!region || region === 'full') return;
+
+                caption.addEventListener('mouseenter', () => {
+                    const coords = region.split(',').map(Number);
+                    if (coords.length !== 4) return;
+
+                    const [x, y, w, h] = coords;
+                    const img = document.getElementById('manuscript-img');
+
+                    const nw = img.naturalWidth;
+                    const nh = img.naturalHeight;
+
+                    if (!nw || !nh) return; // Wait for image to load
+
+                    const highlight = document.createElement('div');
+                    highlight.className = 'image-highlight';
+
+                    let left = (x / nw * 100);
+                    let top = (y / nh * 100);
+                    let width = (w / nw * 100);
+                    let height = (h / nh * 100);
+
+                    // Handle mirrored state
+                    if (img.classList.contains('mirrored')) {
+                        left = 100 - ((x + w) / nw * 100);
+                    }
+
+                    highlight.style.left = left + '%';
+                    highlight.style.top = top + '%';
+                    highlight.style.width = width + '%';
+                    highlight.style.height = height + '%';
+
+                    wrapper.appendChild(highlight);
+                });
+
+                caption.addEventListener('mouseleave', () => {
+                    const highlight = wrapper.querySelector('.image-highlight');
+                    if (highlight) highlight.remove();
+                });
+            });
         }
         //populate apparatus
-        function updateApparatus() {
-            const notes = codexXml.getElementsByTagNameNS('http://www.tei-c.org/ns/1.0', 'note');
-            let html = "<ul>";
-            for (let note of notes) {
-                if (note.getAttribute('type') === 'critical') {
-                    html += `<li><strong>${note.getAttribute('n')}.</strong> ${note.textContent}</li>`;
+        function updateApparatus(facsId) {
+            let pbElement = null;
+            const pbs = codexXml.getElementsByTagNameNS('http://www.tei-c.org/ns/1.0', 'pb');
+            const pbsFallback = codexXml.getElementsByTagName('pb');
+            const allPbs = pbs.length > 0 ? pbs : pbsFallback;
+
+            for (let pb of allPbs) {
+                if (pb.getAttribute('facs') === facsId) {
+                    pbElement = pb;
+                    break;
                 }
             }
+
+            let notes = [];
+            if (pbElement) {
+                let currentNode = pbElement.nextSibling;
+                while (currentNode) {
+                    if (currentNode.nodeType === 1 && (currentNode.tagName === 'pb' || currentNode.tagName.endsWith(':pb'))) {
+                        break; // Stop at next pb
+                    }
+                    if (currentNode.nodeType === 1) {
+                        if ((currentNode.tagName === 'note' || currentNode.tagName.endsWith(':note')) && currentNode.getAttribute('type') === 'critical') {
+                            notes.push(currentNode);
+                        }
+                        const innerNotes = currentNode.getElementsByTagNameNS ?
+                            currentNode.getElementsByTagNameNS('http://www.tei-c.org/ns/1.0', 'note') :
+                            currentNode.getElementsByTagName('note');
+
+                        const innerNotesFallback = innerNotes.length === 0 ? currentNode.getElementsByTagName('note') : innerNotes;
+
+                        for (let innerNote of innerNotesFallback) {
+                            if (innerNote.getAttribute('type') === 'critical') {
+                                notes.push(innerNote);
+                            }
+                        }
+                    }
+                    currentNode = currentNode.nextSibling;
+                }
+            }
+
+            let html = "<ul>";
+            if (notes.length > 0) {
+                // Sort by the numerical value of 'n'
+                notes.sort((a, b) => {
+                    const valA = parseInt(a.getAttribute('n')) || 0;
+                    const valB = parseInt(b.getAttribute('n')) || 0;
+                    return valA - valB;
+                });
+
+                for (let note of notes) {
+                    html += `<li><strong>${note.getAttribute('n')}.</strong> ${note.textContent}</li>`;
+                }
+            } else {
+                html += "<li><em>Nessuna nota per questa pagina.</em></li>";
+            }
             html += "</ul>";
-            document.querySelector('.apparatus-content').innerHTML = html;
+
+            const apparatusContent = document.querySelector('.apparatus-content');
+            if (apparatusContent) {
+                apparatusContent.innerHTML = html;
+            }
         }
 
 
-        document.getElementById('view-select')?.addEventListener('change', (e) => {
-            const selectedView = e.target.value;
-            const data = manuscriptPages[currentManuscriptPage];
-            const viewSelect = document.getElementById('view-select');
-            const currentView = viewSelect ? viewSelect.value : 'diplomatic';
+        function getCurrentEdition() {
+            const activeTab = document.querySelector('.bookmark.active');
+            return activeTab ? activeTab.getAttribute('data-value') : 'diplomatic';
+        }
 
-            // Passa la scelta alla funzione di rendering
-            transcriptionText.innerHTML = renderTranscription(data.facs, currentView);
+        // Edition Selection via Bookmarks
+        const bookmarks = document.querySelectorAll('.bookmark');
+        bookmarks.forEach(bookmark => {
+            bookmark.addEventListener('click', function() {
+                bookmarks.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const data = manuscriptPages[currentManuscriptPage];
+                if (data) {
+                    transcriptionText.innerHTML = renderTranscription(data.facs, this.getAttribute('data-value'));
+                }
+            });
         });
 
         function updateManuscriptPage() {
@@ -227,16 +376,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const data = manuscriptPages[currentManuscriptPage];
 
-                // --- QUESTA È LA PARTE DA MODIFICARE ---
-                // Recuperiamo la scelta attuale dalla tendina prima di renderizzare
-                const viewSelect = document.getElementById('view-select');
-                const currentView = viewSelect ? viewSelect.value : 'diplomatic';
+                const currentView = getCurrentEdition();
 
                 manuscriptImg.src = data.img;
 
                 // Passiamo currentView così la pagina nuova mantiene la scelta fatta
                 transcriptionText.innerHTML = renderTranscription(data.facs, currentView);
-                // ---------------------------------------
 
                 if (pageNumDisplay) pageNumDisplay.innerText = data.pageNum;
 
