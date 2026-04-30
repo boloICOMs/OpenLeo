@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const facsAttr = pb.getAttribute('facs');
                     const pageNum = pb.getAttribute('n');
                     if (facsAttr) {
-                    const facsId = facsAttr.replace('#', '');
+                        const facsId = facsAttr.replace('#', '');
                         if (surfaceMap[facsId]) {
                             pages.push({
                                 pageNum: pageNum,
@@ -357,10 +357,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Edition Selection via Bookmarks
         const bookmarks = document.querySelectorAll('.bookmark');
         bookmarks.forEach(bookmark => {
-            bookmark.addEventListener('click', function() {
+            bookmark.addEventListener('click', function () {
                 bookmarks.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                
+
                 const data = manuscriptPages[currentManuscriptPage];
                 if (data) {
                     transcriptionText.innerHTML = renderTranscription(data.facs, this.getAttribute('data-value'));
@@ -429,3 +429,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+

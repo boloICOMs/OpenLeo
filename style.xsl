@@ -148,7 +148,7 @@
                 <span class="abbr">
                     <xsl:if test="tei:expan">
                         <xsl:attribute name="title">
-                            <xsl:value-of select="concat('Espansione: ', tei:expan)"/>
+                            <xsl:value-of select="concat('Expansion: ', tei:expan)"/>
                         </xsl:attribute>
                     </xsl:if>
                     <xsl:apply-templates select="tei:abbr | tei:orig"/>
@@ -181,12 +181,57 @@
                 </xsl:if>
             </xsl:when>
             <xsl:otherwise>
-                <del><xsl:apply-templates/></del>
+                <del>
+                    <xsl:attribute name="title">
+                        <xsl:text>Deleted by the author: </xsl:text>
+                        <xsl:choose>
+                            <xsl:when test=".//tei:orig | .//tei:abbr">
+                                <xsl:for-each select=".//tei:orig | .//tei:abbr">
+                                    <xsl:value-of select="normalize-space(.)"/>
+                                    <xsl:text> </xsl:text>
+                                </xsl:for-each>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                    <xsl:apply-templates/>
+                </del>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     
-   <xsl:template match="tei:add">
+    <xsl:template match="tei:seg[@hand='#other-hand']">
+        <xsl:choose>
+            <xsl:when test="$editionType = 'critical'">
+                <div class="critical-figure-caption other-hand-block">
+                    <xsl:if test=".//tei:figure/tei:graphic/@url">
+                        <xsl:attribute name="data-region">
+                            <xsl:variable name="cleanId" select="translate($pageId, '#', '')"/>
+                            <xsl:variable name="afterId" select="substring-after(.//tei:figure/tei:graphic/@url, concat($cleanId, '/'))"/>
+                            <xsl:choose>
+                                <xsl:when test="contains($afterId, '/')">
+                                    <xsl:value-of select="substring-before($afterId, '/')"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="$afterId"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:apply-templates select="text() | tei:handShift"/>
+                </div>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="other-hand" title="Other hand">
+                    <xsl:apply-templates/>
+                </span>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template match="tei:add">
         <xsl:choose>
             <xsl:when test="$editionType = 'diplomatic'">
                 <span class="tei-add add-{@place}"><xsl:apply-templates/></span>

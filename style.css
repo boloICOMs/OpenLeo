@@ -936,6 +936,7 @@ nav.nav-hidden {
 
 .other-hand {
     color: #000000 !important;
+    cursor: help;
 }
 
 /* Contenitore flex delle due colonne */
@@ -1379,6 +1380,7 @@ del {
     color: #9a7a50;
     text-decoration: line-through;
     opacity: 0.75;
+    cursor: help;
 }
 
 
