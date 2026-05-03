@@ -809,9 +809,9 @@ nav.nav-hidden {
 }
 
 /* ============================================================
-   APPARATUS ACCORDION (JS-driven, no Bootstrap)
+   COMMENTARY ACCORDION (JS-driven, no Bootstrap)
    ============================================================ */
-.apparatus-accordion {
+.commentary-accordion {
     width: 100%;
     margin-top: 20px;
     border-radius: 6px;
@@ -819,7 +819,7 @@ nav.nav-hidden {
     border: 1px solid rgba(78, 11, 11, 0.4);
 }
 
-.apparatus-toggle {
+.commentary-toggle {
     width: 100%;
     display: flex;
     align-items: center;
@@ -836,25 +836,25 @@ nav.nav-hidden {
     transition: background-color 0.2s ease;
 }
 
-.apparatus-toggle:hover {
+.commentary-toggle:hover {
     background-color: #6a1010;
 }
 
-.apparatus-toggle.active {
+.commentary-toggle.active {
     background-color: #6a1010;
 }
 
-.apparatus-icon {
+.commentary-icon {
     transition: transform 0.3s ease;
     font-size: 0.85rem;
 }
 
-.apparatus-toggle.active .apparatus-icon {
+.commentary-toggle.active .commentary-icon {
     transform: rotate(180deg);
 }
 
 /* Collapsed state: hidden with no height */
-.apparatus-body {
+.commentary-body {
     max-height: 0;
     overflow: scroll;
     transition: max-height 0.35s ease, padding 0.35s ease;
@@ -862,11 +862,11 @@ nav.nav-hidden {
 }
 
 /* Expanded state: visible */
-.apparatus-body.open {
+.commentary-body.open {
     max-height: 500px;
 }
 
-.apparatus-content {
+.commentary-content {
     padding: 14px 16px;
     font-family: 'Garamond', serif;
     font-size: 0.95rem;
@@ -2006,12 +2006,20 @@ del {
    ============================================================ */
 .project-section {
     margin-top: 100px;
-    padding: 80px 0;
+    padding: 50px 0;
     border-top: 1px solid rgba(0, 43, 78, 0.05);
     text-align: center;
 }
 
-.project-section h2 {
+.biography-section {
+    margin-top: 100px;
+    font-size: 18px;
+    border-top: 1px solid rgba(0, 43, 78, 0.05);
+    text-align: left;
+}
+
+.project-section,
+.biography-section h2 {
     font-size: 3rem;
     margin-bottom: 30px;
 }
@@ -2032,10 +2040,23 @@ del {
     transition: all 0.3s ease;
 }
 
+.biography-section a,
+.docu a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+
 .project-text a:hover,
 .prefooter-about a:hover,
 .project-text a:active,
-.prefooter-about a:active {
+.prefooter-about a:active,
+.biography-section a:hover,
+.biography-section a:active .docu a:active,
+.docu a:hover {
     border-bottom-color: var(--action-red);
 }
 
@@ -2601,4 +2622,143 @@ footer {
 
 .critical-figure-caption:hover {
     background-color: rgba(78, 11, 11, 0.1);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ============================================================ */
+
+/* TABLETS & SMALL DESKTOPS */
+@media screen and (max-width: 1024px) {
+
+    /* Navbar */
+    .nav-links {
+        gap: 20px;
+    }
+
+    /* Collection Grid */
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    /* Prefooter */
+    .prefooter-container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .prefooter-about,
+    .prefooter-team {
+        width: 100%;
+    }
+
+    .team-list {
+        justify-content: center;
+    }
+
+    /* Viewer Container */
+    .viewer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .manuscript-viewer {
+        flex: auto;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .transcription-box {
+        width: fit-content !important;
+        max-width: 100% !important;
+        margin-top: 50px;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* MOBILE DEVICES */
+@media screen and (max-width: 768px) {
+
+    /* Root Variables */
+    :root {
+        --navbar-height: 80px;
+    }
+
+    /* Navbar & Mobile Menu */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        width: 100%;
+        background-color: #7e5c43;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+        /* Hidden by default, animated in via JS toggling 'active' class */
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: -1;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        z-index: 999;
+    }
+
+    /* Typography */
+    .logo-text {
+        font-size: 1.8rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    /* Collection Grid */
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Viewer Container / Codex */
+    .transcription-container {
+        flex-direction: column;
+    }
+
+    .column-left-1v,
+    .column-right-1v,
+    .column-left-2r,
+    .column-right-2r,
+    .column-right-3v {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 20px !important;
+    }
+
+    .leonardo-figure.margin-left,
+    .leonardo-figure.margin-right,
+    .leonardo-figure.bottom {
+        max-width: 100%;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
 }

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang='en'>
   <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>Diplomatic Transcription of Codex on the Flight of birds</title>
+            <title>Scholarly Digital Edition of the Codex on the Flight of birds: diplomatic and critical transcription</title>
             <author>Leonardo Da Vinci</author>
             <respStmt >
                <resp>Editor</resp>
@@ -16,7 +16,9 @@
             </respStmt>
          </titleStmt>
          <publicationStmt>
-            <p>Information about who is publishing this digital file.</p>
+            <publisher>University of Bologna</publisher>
+            <pubPlace>Bologna</pubPlace>
+            <date when='2026'>2026</date>
          </publicationStmt>
          <sourceDesc>
             <msDesc>
@@ -43,8 +45,39 @@
                   </handDesc>
                </physDesc>
             </msDesc>
+            <listBibl>
+               <bibl xml:id='Marinoni_1976'>
+                  <author>Leonardo da Vinci</author>
+                  <title>Il codice sul volo degli uccelli, nella Biblioteca reale di Torino</title>
+                  <editor>Augusto Marinoni</editor>
+                  <publisher>Giunti-Barbera</publisher>
+                  <pubPlace>Firenze</pubPlace>
+                  <date>1976</date>
+               </bibl>
+            </listBibl>
          </sourceDesc>
-
+         <encodingDesc>
+            <editorialDecl>
+               <p>The diplomatic transcription reproduces as faithfully as possible the original manuscript housed in the Biblioteca Reale di Torino</p>
+               <p>The critical transcrition is based on the edition curated by Augusto Marinoni, in 1976</p>
+            </editorialDecl>
+         </encodingDesc>
+         <profileDesc>
+            <langUsage>
+               <language ident='it'>Italian</language>
+               <language ident='es'>Spanish annotation</language>
+            </langUsage>
+            <particDesc>
+               <listPerson>
+                  <person xml:id="LdV">
+                     <persName>Leonardo da Vinci</persName>
+                  </person>
+                  <person xml:id="AM">
+                     <persName>Augusto Marinoni</persName>
+                  </person>
+               </listPerson>
+            </particDesc>
+         </profileDesc>
       </fileDesc>
   </teiHeader>
   
@@ -80,11 +113,11 @@
       </surface>
   </facsimile>
 
-  <text>
+  <text xml:lang='it'>
       <body>
          <pb n="1r" facs="#Varia_95_003"/>
          <div id="folio-1r"> 
-            <seg hand="#other-hand">
+            <seg hand="#other-hand" xml:lang='es'>
                <handShift hand="#other-hand"/>Secretos de poluol materiales
                <figure xml:id="fig-other-hand-1r">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/147,35,1185,123/full/0/default.jpg"/>
@@ -92,21 +125,21 @@
                </figure>
             </seg>
             <p>
-               <handShift hand="#LdV"/><lb/><choice><orig>dello</orig><reg resp="AM">Dello</reg></choice><choice><abbr> inprōtare</abbr><expan><reg resp="AM"> improntare</reg></expan></choice><note type="critical" resp="AM" n="1">Coniare</note> medaglie.<choice><orig> polta</orig><reg resp="AM"> Polta</reg></choice><note type="critical" resp="AM" n="2">Poltiglia</note> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice><choice><orig>smeriglo</orig><reg resp="AM"> smeriglio</reg></choice> mista<choice><abbr> conacqͣ</abbr><expan><reg resp="AM"> con acqua</reg></expan></choice> vite<supplied resp="AM" reason="punctuation">,</supplied>  
-               <lb/><choice><orig> oscaglia <choice><abbr>∂</abbr><expan><reg resp="AM">di </reg></expan></choice>ferro co naceto ho cenere <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> foglie <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> noce . ho cenere</orig><reg resp="AM"> o scaglia di ferro con aceto, o cenere di foglie di noce, o cenere</reg></choice>
-               <lb/><choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> paglia <choice><abbr>sottil mẽte</abbr><expan><reg resp="AM">sottilmente</reg></expan></choice> trita<supplied resp="AM" reason="punctuation">.</supplied> 
+               <handShift hand="#LdV"/><lb/><choice><orig>dello</orig><reg resp="AM">Dello</reg></choice><choice><abbr> inprōtare</abbr><expan><reg resp="AM"> improntare</reg></expan></choice><note type="critical" resp="AM" n="1">Coniare</note> medaglie.<choice><orig> polta</orig><reg resp="AM"> Polta</reg></choice><note type="critical" resp="AM" n="2">Poltiglia</note> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice><choice><orig>smeriglo</orig><reg resp="AM"> smeriglio</reg></choice> mista<choice><abbr> conacqͣ</abbr><expan><reg resp="AM"> con acqua</reg></expan></choice> vite<supplied resp="AM" reason="punctuation">,</supplied>  
+               <lb/><choice><orig> oscaglia <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di </reg></expan></choice>ferro co naceto ho cenere <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> foglie <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> noce . ho cenere</orig><reg resp="AM"> o scaglia di ferro con aceto, o cenere di foglie di noce, o cenere</reg></choice>
+               <lb/><choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> paglia <choice><abbr>sottil mẽte</abbr><expan><reg resp="AM">sottilmente</reg></expan></choice> trita<supplied resp="AM" reason="punctuation">.</supplied> 
                <figure xml:id="P1-1r">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/72,147,1572,255/full/0/default.jpg"/>
                   <figDesc>First paragraph</figDesc>
                </figure>
             </p>
             <p>
-               <lb/> Il <choice><abbr>∂amante</abbr><expan><reg resp="AM">diamante</reg></expan></choice> <choice><orig> sipesta involto</orig><reg resp="AM"> si pesta involto</reg></choice> <del rend="strikethrough">infr</del> in nel <choice><abbr>piōbo</abbr><expan><reg resp="AM">piombo</reg></expan></choice><choice><orig><pc type="diplomatic">.</pc></orig><reg resp="AM"><pc type="critical">,</pc></reg></choice> <choice><orig>ebattuto</orig><reg resp="AM">e battuto</reg></choice> con martello<supplied resp="AM" reason="punctuation">,</supplied>  
-               <lb/> <choice><orig> e <choice><abbr>∂steso</abbr><expan><reg resp="AM">disteso</reg></expan></choice> piv </orig><reg resp="AM">e disteso più</reg></choice> volte tal <choice><abbr>piōbo</abbr><expan><reg resp="AM">piombo</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>eradopiato</orig><reg resp="AM">e raddoppiato</reg></choice><supplied resp="AM" reason="punctuation">.</supplied> <del rend="strikethrough">er</del> <choice><orig>essitiene involto nel
-               <lb/> la</orig><reg resp="AM">E si tiene involto nella</reg></choice> carta <choice><orig>acco che ttal poluere</orig><reg resp="AM"> acciò che tal polvere</reg></choice> <choice><abbr>nō</abbr><expan><reg resp="AM">non</reg></expan></choice> si versi<supplied resp="AM" reason="punctuation">.</supplied> <choice><orig>e</orig><reg resp="AM">E</reg></choice> poi <choice><abbr>fon∂</abbr><expan><reg resp="AM">fondi</reg></expan></choice> il<choice><abbr>piōbo</abbr><expan><reg resp="AM"> piombo</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>ella pol
-               <lb/> bere</orig><reg resp="AM"> e la polvere</reg></choice><note type="critical" resp="AM" n="3">Ms. 'polbere'.</note> vie<supplied resp="AM" reason="punctuation">'</supplied> <choice><abbr>∂</abbr><expan><reg resp="AM">di </reg></expan></choice><choice><abbr>soꝓa</abbr><expan><reg resp="AM"> sopra</reg></expan></choice> al <choice><orig>pionbo</orig><reg resp="AM">piombo</reg></choice> fonduto<supplied resp="AM" reason="punctuation">;</supplied> la qual <choice><orig>poj</orig><reg resp="AM">poi</reg></choice> sia fregata infra due 
-               <lb/> <choice><orig>piasstre daccaio</orig><reg resp="AM">piastre d'acciaio</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> tanto <choice><orig>sipoluerezi</orig><reg resp="AM">si polverizzi</reg></choice><note type="critical" resp="AM" n="4">Polverizzi</note> bene<supplied resp="AM" reason="punctuation">.</supplied><choice><orig> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> poi laualo</orig><reg resp="AM"> Di poi lavalo</reg></choice> <choice><orig>choll</orig><reg resp="AM">coll'</reg></choice><choice><abbr>acqͣ</abbr><expan><reg resp="AM">acqua</reg></expan></choice> <choice><orig>dapartire</orig><reg resp="AM">da partire</reg></choice><note type="critical" resp="AM" n="5">Acqua da partire = acqua forte o acido nitritico.</note> 
-               <lb/> <choice><orig>e risoluerassi la <choice><abbr>negre∂ne</abbr><expan><reg resp="AM">negredine</reg></expan></choice> delferro ellassciera la poluere netta.</orig><reg resp="AM"> e risolverassi la negredine del ferro e lascerà la polvere netta.</reg></choice> 
+               <lb/> Il <choice><abbr>ꝺamante</abbr><expan><reg resp="AM">diamante</reg></expan></choice> <choice><orig> sipesta involto</orig><reg resp="AM"> si pesta involto</reg></choice> <del rend="strikethrough">infr</del> in nel <choice><abbr>piōbo</abbr><expan><reg resp="AM">piombo</reg></expan></choice><choice><orig><pc type="diplomatic">.</pc></orig><reg resp="AM"><pc type="critical">,</pc></reg></choice> <choice><orig>ebattuto</orig><reg resp="AM">e battuto</reg></choice> con martello<supplied resp="AM" reason="punctuation">,</supplied>  
+               <lb/> <choice><orig> e <choice><abbr>ꝺsteso</abbr><expan><reg resp="AM">disteso</reg></expan></choice> piv </orig><reg resp="AM">e disteso più</reg></choice> volte tal <choice><abbr>piōbo</abbr><expan><reg resp="AM">piombo</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>eradopiato</orig><reg resp="AM">e raddoppiato</reg></choice><supplied resp="AM" reason="punctuation">.</supplied> <del rend="strikethrough">er</del> <choice><orig>essitiene involto nel
+               <lb/> la</orig><reg resp="AM">E si tiene involto nella</reg></choice> carta <choice><orig>acco che ttal poluere</orig><reg resp="AM"> acciò che tal polvere</reg></choice> <choice><abbr>nō</abbr><expan><reg resp="AM">non</reg></expan></choice> si versi<supplied resp="AM" reason="punctuation">.</supplied> <choice><orig>e</orig><reg resp="AM">E</reg></choice> poi <choice><abbr>fonꝺ</abbr><expan><reg resp="AM">fondi</reg></expan></choice> il<choice><abbr>piōbo</abbr><expan><reg resp="AM"> piombo</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>ella pol
+               <lb/> bere</orig><reg resp="AM"> e la polvere</reg></choice><note type="critical" resp="AM" n="3">Ms. 'polbere'.</note> vie<supplied resp="AM" reason="punctuation">'</supplied> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di </reg></expan></choice><choice><abbr>soꝓa</abbr><expan><reg resp="AM"> sopra</reg></expan></choice> al <choice><orig>pionbo</orig><reg resp="AM">piombo</reg></choice> fonduto<supplied resp="AM" reason="punctuation">;</supplied> la qual <choice><orig>poj</orig><reg resp="AM">poi</reg></choice> sia fregata infra due 
+               <lb/> <choice><orig>piasstre daccaio</orig><reg resp="AM">piastre d'acciaio</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> tanto <choice><orig>sipoluerezi</orig><reg resp="AM">si polverizzi</reg></choice><note type="critical" resp="AM" n="4">Polverizzi</note> bene<supplied resp="AM" reason="punctuation">.</supplied><choice><orig> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> poi laualo</orig><reg resp="AM"> Di poi lavalo</reg></choice> <choice><orig>choll</orig><reg resp="AM">coll'</reg></choice><choice><abbr>acqͣ</abbr><expan><reg resp="AM">acqua</reg></expan></choice> <choice><orig>dapartire</orig><reg resp="AM">da partire</reg></choice><note type="critical" resp="AM" n="5">Acqua da partire = acqua forte o acido nitritico.</note> 
+               <lb/> <choice><orig>e risoluerassi la <choice><abbr>negreꝺne</abbr><expan><reg resp="AM">negredine</reg></expan></choice> delferro ellassciera la poluere netta.</orig><reg resp="AM"> e risolverassi la negredine del ferro e lascerà la polvere netta.</reg></choice> 
                <figure xml:id="P2-1r">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/58,398,1599,388/1200,/0/default.jpg"/>
                   <figDesc>Second paragraph</figDesc>
@@ -116,7 +149,7 @@
                <lb/> <choice><orig>lossmeriglo inpezi grossi sironpe chol metterlo</orig><reg resp="AM">Lo smeriglio in pezzi grossi si rompe col metterlo</reg></choice> <choice><abbr>soꝓa</abbr><expan><reg resp="AM">sopra</reg></expan></choice> <choice><orig>vnpanno imol  
                <lb/> ti doppi essi</orig><reg resp="AM">un panno i' molti doppi e si</reg></choice><choice><abbr>ꝓcote</abbr><expan><reg resp="AM"> percote</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM"> per</reg></expan></choice> <choice><orig>fiancho</orig><reg resp="AM">fianco</reg></choice> col martello<supplied resp="AM" reason="punctuation">;</supplied> e <choice><orig>cosi sene va poi injsscagle 
                <lb/> a pocho appocho</orig><reg resp="AM">così se ne va poi in iscaglie a poco a poco</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>e poj sipesta</orig><reg resp="AM">e poi si pesta</reg></choice> <choice><abbr>cō</abbr><expan><reg resp="AM">con</reg></expan></choice><choice><orig>faciljta</orig><reg resp="AM"> facilità</reg></choice><supplied resp="AM" reason="punctuation">.</supplied> <choice><orig>essettu lotenessi</orig><reg resp="AM">E se tu lo tenessi</reg></choice> <choice><abbr>soꝓa</abbr><expan><reg resp="AM">sopra</reg></expan></choice> <choice><abbr>lancu
-               <lb/> ∂ne</abbr><expan><reg resp="AM">l'ancudine</reg></expan></choice><note type="critical" resp="AM" n="6">Incudine.</note><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>maj</orig><reg resp="AM">mai</reg></choice> <choice><abbr>lorōperesstj</abbr><expan><reg resp="AM">lo romperesti</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>essendo chosigrosso</orig><reg resp="AM">essendo così grosso</reg></choice><supplied resp="AM" reason="punctuation">.</supplied> 
+               <lb/> ꝺne</abbr><expan><reg resp="AM">l'ancudine</reg></expan></choice><note type="critical" resp="AM" n="6">Incudine.</note><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>maj</orig><reg resp="AM">mai</reg></choice> <choice><abbr>lorōperesstj</abbr><expan><reg resp="AM">lo romperesti</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>essendo chosigrosso</orig><reg resp="AM">essendo così grosso</reg></choice><supplied resp="AM" reason="punctuation">.</supplied> 
                <figure xml:id="P3-1r">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/40,787,1583,355/full/0/default.jpg"/>
                   <figDesc>Third paragraph</figDesc>
@@ -164,7 +197,7 @@
                <p>
                   <lb/> <choice><orig>velocita delpeso 
                   <lb/> pellarcho.coe</orig><reg resp="AM">Velocità del peso pell'arco, cioè</reg></choice> 8 e 7 
-                  <lb/> <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>∂uelocita</abbr><expan><reg resp="AM">di velocità.</reg></expan></choice>
+                  <lb/> <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>ꝺuelocita</abbr><expan><reg resp="AM">di velocità.</reg></expan></choice>
                   <figure xml:id="P3-1v">
                      <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_005/1372,715,381,181/full/0/default.jpg"/>
                      <figDesc>Third paragraph 1v</figDesc>
@@ -173,25 +206,25 @@
 
                <p>
                   <lb/> <choice><orig>la velocita delpe 
-                  <lb/> so</orig><reg resp="AM">La velocità del peso</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>∂sscendendo</abbr><expan><reg resp="AM">discendendo</reg></expan></choice> <choice><abbr>ꝓla</abbr><expan><reg resp="AM">per la</reg></expan></choice>
+                  <lb/> so</orig><reg resp="AM">La velocità del peso</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝺsscendendo</abbr><expan><reg resp="AM">discendendo</reg></expan></choice> <choice><abbr>ꝓla</abbr><expan><reg resp="AM">per la</reg></expan></choice>
                   <lb/> corda<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>ella meta pi 
                   <lb/> vtardo</orig><reg resp="AM">è la metà più tardo</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perchè</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>tal 
                   <lb/> corda <choice><orig>sitaglia</orig><reg resp="AM">si taglia</reg></choice> <choice><abbr>lā
                   <lb/> golo</abbr><expan><reg resp="AM">l'angolo</reg></expan></choice> retto r p v 
                   <lb/> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice><choice><orig>meta.e</orig><reg resp="AM">metà, e </reg></choice><choice><abbr>ꝓco</abbr><expan><reg resp="AM">perciò</reg></expan></choice><choice><orig> ella 
                   <lb/> meta piv tardo</orig><reg resp="AM"> è la metà più tardo</reg></choice> 
-                  <lb/> che <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>linia</orig><reg resp="AM">la linia</reg></choice> <choice><abbr>ꝓpen∂
+                  <lb/> che <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>linia</orig><reg resp="AM">la linia</reg></choice> <choice><abbr>ꝓpenꝺ
                   <lb/> culare.</abbr><expan><reg resp="AM">perpendiculare</reg></expan></choice> p r<supplied resp="AM" reason="punctuation">.</supplied> <choice><abbr>ōde</abbr><expan><reg resp="AM">Onde</reg></expan></choice>
                   <lb/> <choice><orig>sara piv tardola 
-                  <lb/> meta e</orig><reg resp="AM">sarà più tardo la metà, e</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>questo <choice><abbr>∂rē</abbr><expan><reg resp="AM">diren</reg></expan></choice> 
+                  <lb/> meta e</orig><reg resp="AM">sarà più tardo la metà, e</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>questo <choice><abbr>ꝺrē</abbr><expan><reg resp="AM">diren</reg></expan></choice> 
                   <lb/> <del rend="strikethrough">chella o</del> <choice><orig>chelgrave</orig><reg resp="AM">che 'l grave</reg></choice>
-                  <lb/> <choice><abbr>∂sscen∂</abbr><expan><reg resp="AM">discendi</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la corda 
-                  <lb/> <choice><orig>in4 e4</orig><reg resp="AM">in 4 e 4</reg></choice> <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>ve 
+                  <lb/> <choice><abbr>ꝺsscenꝺ</abbr><expan><reg resp="AM">discendi</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la corda 
+                  <lb/> <choice><orig>in4 e4</orig><reg resp="AM">in 4 e 4</reg></choice> <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>ve 
                   <lb/> locita</orig><reg resp="AM">velocità</reg></choice> e <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>larcho</orig><reg resp="AM">l'arco</reg></choice> <choice><abbr>ī</abbr><expan><reg resp="AM">in</reg></expan></choice>
-                  <lb/> in 8 e 7 <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice>
+                  <lb/> in 8 e 7 <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice>
                   <lb/> <choice><orig>dessa velocita che fa</orig><reg resp="AM">di velocità, che fa</reg></choice> 
-                  <lb/> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <subst><del rend="strikethrough">chorda</del> <add place="above">archo</add></subst> 15 <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <del rend="strikethrough">eꝓ
-                  <lb/> a</del> <choice><abbr>∂</abbr><expan><reg resp="AM">di </reg></expan></choice><choice><orig>velocita</orig><reg resp="AM">velocità</reg></choice> e <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>cor 
+                  <lb/> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <subst><del rend="strikethrough">chorda</del> <add place="above">archo</add></subst> 15 <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <del rend="strikethrough">eꝓ
+                  <lb/> a</del> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di </reg></expan></choice><choice><orig>velocita</orig><reg resp="AM">velocità</reg></choice> e <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>cor 
                   <lb/> da</orig><reg resp="AM">corda</reg></choice> <choice><orig>in.8 adunque 
                   <lb/> epiv</orig><reg resp="AM">in 8. Adunque è più</reg></choice> veloce <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>archo 
                   <lb/> che <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>corda tutto <choice><orig>le
@@ -207,11 +240,11 @@
 
             <div type="column-right-1v">
                <p>
-                  <lb/> <choice><orig>Jl peso. p.</orig><reg resp="AM">Il peso p</reg></choice> <choice><abbr>∂sscēdera</abbr><expan><reg resp="AM">discenderà</reg></expan></choice> <choice><orig>piv pressto</orig><reg resp="AM">più presto</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>rarcho</orig><reg resp="AM">arco</reg></choice> che <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>chorda</orig><reg resp="AM">corda</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> 
-                  <lb/> <choice><orig>ella ragonsie che lameta dellarcho</orig><reg resp="AM">e la ragion si è che la metà dell'arco</reg></choice><supplied resp="AM" reason="punctuation">,</supplied><note type="critical" n="2">A metà dell'arco, o per metà dell'arco. (È ovvio rilevare che p r è una corda, non un arco, e che la discesa lungo l'arco non è mai perpendicolare; la velocità poi è doppia).</note> esso <choice><orig>chade</orig><reg resp="AM">cade</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>pi</orig><reg resp="AM">p</reg></choice> in r 
-                  <lb/> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice><choice><orig>linjia</orig><reg resp="AM"> linia</reg></choice> <choice><abbr>ꝓpen∂culare</abbr><expan><reg resp="AM">perpendiculare</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> el resto <choice><orig>del<del rend="strikethrough">o</del>camjno he moto re 
+                  <lb/> <choice><orig>Jl peso. p.</orig><reg resp="AM">Il peso p</reg></choice> <choice><abbr>ꝺsscēdera</abbr><expan><reg resp="AM">discenderà</reg></expan></choice> <choice><orig>piv pressto</orig><reg resp="AM">più presto</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>rarcho</orig><reg resp="AM">arco</reg></choice> che <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>chorda</orig><reg resp="AM">corda</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> 
+                  <lb/> <choice><orig>ella ragonsie che lameta dellarcho</orig><reg resp="AM">e la ragion si è che la metà dell'arco</reg></choice><supplied resp="AM" reason="punctuation">,</supplied><note type="critical" n="2">A metà dell'arco, o per metà dell'arco. (È ovvio rilevare che p r è una corda, non un arco, e che la discesa lungo l'arco non è mai perpendicolare; la velocità poi è doppia).</note> esso <choice><orig>chade</orig><reg resp="AM">cade</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>pi</orig><reg resp="AM">p</reg></choice> in r 
+                  <lb/> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice><choice><orig>linjia</orig><reg resp="AM"> linia</reg></choice> <choice><abbr>ꝓpenꝺculare</abbr><expan><reg resp="AM">perpendiculare</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> el resto <choice><orig>del<del rend="strikethrough">o</del>camjno he moto re 
                   <lb/> fresso che . e</orig><reg resp="AM">del cammino è moto refresso, che è</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> <choice><orig>velocita</orig><reg resp="AM">velocità</reg></choice> li 7/8 della <choice><orig>velocita</orig><reg resp="AM">velocità</reg></choice> del moto <choice><orig>inci
-                  <lb/> dente</orig><reg resp="AM">incidente</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>chome provato nel 5° essellassci</orig><reg resp="AM">com'è provato nel quinto. E se lasci</reg></choice> tal peso <choice><abbr>∂sscen
+                  <lb/> dente</orig><reg resp="AM">incidente</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>chome provato nel 5° essellassci</orig><reg resp="AM">com'è provato nel quinto. E se lasci</reg></choice> tal peso <choice><abbr>ꝺsscen
                   <lb/> dere</abbr><expan><reg resp="AM">discendere</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la corda p n<supplied resp="AM" reason="punctuation">,</supplied> esso moto <choice><orig>ettutto lameta piv tardo 
                   <lb/> chelmoto p r coeli 4/8 egia aviandetto chelmotore 
                   <lb/> fresso r n elli 7/8 delmoto p r</orig><reg resp="AM">è tutto la metà più tardo che 'l moto p r, cioè li 4/8, e già avian<note type="critical" n="3">Abbiamo.</note> detto che 'l moto refresso r n è li 7/8 del moto p r.</reg></choice>
@@ -222,19 +255,19 @@
                </p>
 
                <p>
-                  <lb/> <choice><orig>Dicano ilpeso p.</orig><reg resp="AM">Diciano<note type="critical" n="4">Ms. 'dicano'; trattandosi del pensiero di Leonardo, ci sembra più corretto intenderlo come prima persona anzi che terza plurale</note> il peso p,</reg></choice> <choice><abbr>∂sscēdendo</abbr><expan><reg resp="AM">discendendo</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> p r<supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>∂sscenda</abbr><expan><reg resp="AM">discenda</reg></expan></choice> in 8 <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> 
-                  <lb/> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>velocita</orig><reg resp="AM">velocità</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>eacam̄inato</abbr><expan><reg resp="AM">e ha camminato</reg></expan></choice> <choice><orig>lameta dellarcho p r n elmoto refresso 
-                  <lb/> r n e</orig><reg resp="AM">la metà dell'arco p r n, e 'l moto refresso r n è</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice><choice><orig> minvito 1/8 delmoto</orig><reg resp="AM">minuito 1/8 del moto</reg></choice> <choice><abbr>incidēte</abbr><expan><reg resp="AM">incidente</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>chevengano insomma aes  
-                  <lb/> sere 8 he 7 .</orig><reg resp="AM">che vengano insomma a essere, 8 e 7,</reg></choice> 15 <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <del rend="strikethrough"><choice><abbr>∂ue</abbr><expan><reg resp="AM">diue</reg></expan></choice></del> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice><choice><abbr>tēpo</abbr><expan><reg resp="AM"> tempo</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>nel quale il peso p apas 
-                  <lb/> sato larcho e de</orig><reg resp="AM">nel quale p ha passato l'arco ed è </reg></choice><choice><abbr>ꝓuenvuto</abbr><expan><reg resp="AM">pervenuto</reg></expan></choice> <choice><orig>in . n esse esso</orig><reg resp="AM">in n. E se esso</reg></choice> peso <choice><abbr>∂sscende</abbr><expan><reg resp="AM">discende</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la
-                  <lb/> <choice><orig>chorda p n esso</orig><reg resp="AM">corda p n, esso</reg></choice> <choice><abbr>∂sscende</abbr><expan><reg resp="AM">discende</reg></expan></choice> <choice><orig>lameta piv tardo</orig><reg resp="AM">la metà più tardo</reg></choice> che <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la <choice><orig>linja</orig><reg resp="AM">linia</reg></choice> <choice><abbr>ꝓpē
-                  <lb/> ∂culare</abbr><expan><reg resp="AM">perpendiculare</reg></expan></choice> p r<supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perché</reg></expan></choice> <choice><orig>essa corda <del rend="strikethrough">ella meta</del> taglia</orig><reg resp="AM">essa corda taglia</reg></choice> <choice><abbr>ꝓmeta</abbr><expan><reg resp="AM">per metà </reg></expan></choice><choice><abbr>lā
+                  <lb/> <choice><orig>Dicano ilpeso p.</orig><reg resp="AM">Diciano<note type="critical" n="4">Ms. 'dicano'; trattandosi del pensiero di Leonardo, ci sembra più corretto intenderlo come prima persona anzi che terza plurale</note> il peso p,</reg></choice> <choice><abbr>ꝺsscēdendo</abbr><expan><reg resp="AM">discendendo</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per</reg></expan></choice> p r<supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝺsscenda</abbr><expan><reg resp="AM">discenda</reg></expan></choice> in 8 <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> 
+                  <lb/> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>velocita</orig><reg resp="AM">velocità</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>eacam̄inato</abbr><expan><reg resp="AM">e ha camminato</reg></expan></choice> <choice><orig>lameta dellarcho p r n elmoto refresso 
+                  <lb/> r n e</orig><reg resp="AM">la metà dell'arco p r n, e 'l moto refresso r n è</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice><choice><orig> minvito 1/8 delmoto</orig><reg resp="AM">minuito 1/8 del moto</reg></choice> <choice><abbr>incidēte</abbr><expan><reg resp="AM">incidente</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>chevengano insomma aes  
+                  <lb/> sere 8 he 7 .</orig><reg resp="AM">che vengano insomma a essere, 8 e 7,</reg></choice> 15 <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <del rend="strikethrough"><choice><abbr>ꝺue</abbr><expan><reg resp="AM">diue</reg></expan></choice></del> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice><choice><abbr>tēpo</abbr><expan><reg resp="AM"> tempo</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>nel quale il peso p apas 
+                  <lb/> sato larcho e de</orig><reg resp="AM">nel quale p ha passato l'arco ed è </reg></choice><choice><abbr>ꝓuenvuto</abbr><expan><reg resp="AM">pervenuto</reg></expan></choice> <choice><orig>in . n esse esso</orig><reg resp="AM">in n. E se esso</reg></choice> peso <choice><abbr>ꝺsscende</abbr><expan><reg resp="AM">discende</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la
+                  <lb/> <choice><orig>chorda p n esso</orig><reg resp="AM">corda p n, esso</reg></choice> <choice><abbr>ꝺsscende</abbr><expan><reg resp="AM">discende</reg></expan></choice> <choice><orig>lameta piv tardo</orig><reg resp="AM">la metà più tardo</reg></choice> che <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la <choice><orig>linja</orig><reg resp="AM">linia</reg></choice> <choice><abbr>ꝓpē
+                  <lb/> ꝺculare</abbr><expan><reg resp="AM">perpendiculare</reg></expan></choice> p r<supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perché</reg></expan></choice> <choice><orig>essa corda <del rend="strikethrough">ella meta</del> taglia</orig><reg resp="AM">essa corda taglia</reg></choice> <choice><abbr>ꝓmeta</abbr><expan><reg resp="AM">per metà </reg></expan></choice><choice><abbr>lā
                   <lb/> golo</abbr><expan><reg resp="AM">l'angolo</reg></expan></choice> <choice><orig>retto .r p v . adun<del rend="strikethough">g</del>que e manj fessto essere essa meta piv 
-                  <lb/> tarda .</orig><reg resp="AM">retto r p v. Adunque è manifesto essere essa metà più tarda;</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice><choice><orig>la qualcosa quando ilpeso</orig><reg resp="AM">la qual cosa, quando il peso</reg></choice> <choice><abbr>e∂sceso</abbr><expan><reg resp="AM">è disceso</reg></expan></choice> in 8 <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice>
-                  <lb/> <choice><orig>tenpo lameta dellarcho egli sarebbe</orig><reg resp="AM">tempo la metà  dell'arco, egli sarebbe</reg></choice> <choice><abbr>∂ssceso</abbr><expan><reg resp="AM">disceso</reg></expan></choice> in 16 <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>∂tē  
-                  <lb/> po</abbr><expan><reg resp="AM">di tempo</reg></expan></choice> <choice><orig>lameta</orig><reg resp="AM">la metà</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice>tal corda<supplied resp="AM" reason="punctuation">;</supplied> <choice><orig>.e poilaltra meta dellarcho effatta con 
-                  <lb/> sette</orig><reg resp="AM">e poi l'altra metà dell'arco è fatta con sette</reg></choice> <choice><abbr>gra∂</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>∂<del rend="strikethrough">tē</del></abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><abbr>potētia</abbr><expan><reg resp="AM">potenzia</reg></expan></choice> <choice><orig><del rend="strikethrough">e a</del> e il resto della corda e</orig><reg resp="AM">e il resto della corda è</reg></choice> pur fatto 
-                  <lb/> <choice><abbr>inse∂ci</abbr><expan><reg resp="AM">in sedici</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>che insoma luno essatto in 32 ellaltro in 15</orig><reg resp="AM">che insomma l'uno è fatto in 32 e l'altro in 15.</reg></choice>
+                  <lb/> tarda .</orig><reg resp="AM">retto r p v. Adunque è manifesto essere essa metà più tarda;</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice><choice><orig>la qualcosa quando ilpeso</orig><reg resp="AM">la qual cosa, quando il peso</reg></choice> <choice><abbr>eꝺsceso</abbr><expan><reg resp="AM">è disceso</reg></expan></choice> in 8 <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice>
+                  <lb/> <choice><orig>tenpo lameta dellarcho egli sarebbe</orig><reg resp="AM">tempo la metà  dell'arco, egli sarebbe</reg></choice> <choice><abbr>ꝺssceso</abbr><expan><reg resp="AM">disceso</reg></expan></choice> in 16 <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>ꝺtē  
+                  <lb/> po</abbr><expan><reg resp="AM">di tempo</reg></expan></choice> <choice><orig>lameta</orig><reg resp="AM">la metà</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice>tal corda<supplied resp="AM" reason="punctuation">;</supplied> <choice><orig>.e poilaltra meta dellarcho effatta con 
+                  <lb/> sette</orig><reg resp="AM">e poi l'altra metà dell'arco è fatta con sette</reg></choice> <choice><abbr>graꝺ</abbr><expan><reg resp="AM">gradi</reg></expan></choice> <choice><abbr>ꝺ<del rend="strikethrough">tē</del></abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><abbr>potētia</abbr><expan><reg resp="AM">potenzia</reg></expan></choice> <choice><orig><del rend="strikethrough">e a</del> e il resto della corda e</orig><reg resp="AM">e il resto della corda è</reg></choice> pur fatto 
+                  <lb/> <choice><abbr>inseꝺci</abbr><expan><reg resp="AM">in sedici</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>che insoma luno essatto in 32 ellaltro in 15</orig><reg resp="AM">che insomma l'uno è fatto in 32 e l'altro in 15.</reg></choice>
                   <figure xml:id="P2-1v">
                      <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_005/39,733,1321,855/full/0/default.jpg"/>
                      <figDesc>Second paragraph 1v</figDesc>
@@ -261,20 +294,20 @@
          <div type="transcription-container">
             <div type="column-left-2r">
                <p>
-                  <lb/> <del rend="strikethrough">Quella p</del> <choice><orig>se vnonca</orig><reg resp="AM">Se un'oncia</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>po<metamark function="add" type="caret"><add place="above">l</add></metamark>vere</orig><reg resp="AM">polvere</reg></choice>
-                  <lb/> <choice><orig>volle vnonca</orig><reg resp="AM">volle un'oncia</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> pallotta<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>ovse jᵃ onca</orig><reg resp="AM">ovver se una oncia</reg></choice>
-                  <lb/> <choice><abbr>∂</abbr><expan><reg resp="AM">di </reg></expan></choice><choice><orig>pallotta vole vnonca</orig><reg resp="AM">pallotta vole<note type="critical" n="1">'volle ... vole': o si tratta di 'volle ... volle' o di 'vole ... vole'.</note> un'oncia</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>poluere</orig><reg resp="AM">polvere</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> che
-                  <lb/> <choice><orig>vora</orig><reg resp="AM">vorrà</reg></choice> 2 <choice><abbr>ōce</abbr><expan><reg resp="AM">once</reg></expan></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>pallota assi acressce
-                  <lb/> re secondo li</orig><reg resp="AM">pallotta? Hassi a crescere secondo li</reg></choice><choice><abbr>∂amjtri</abbr><expan><reg resp="AM"> diamitri</reg></expan></choice> della <choice><orig> pallota co 
-                  <lb/> e secondo ilor</orig><reg resp="AM">pallotta, cioè secondo i lor</reg></choice><choice><abbr>∂amjtri</abbr><expan><reg resp="AM"> diamitri</reg></expan></choice> <choice><orig>mvltiplicatj</orig><reg resp="AM">multiplicati</reg></choice> <choice><abbr>ī</abbr><expan><reg resp="AM">in</reg></expan></choice>
-                  <lb/> se medesimi<supplied resp="AM" reason="punctuation">,</supplied> come <choice><abbr>∂re</abbr><expan><reg resp="AM">dire</reg></expan></choice><supplied resp="AM" reason="punctuation">:</supplied> tal <choice><orig>proportio
+                  <lb/> <del rend="strikethrough">Quella p</del> <choice><orig>se vnonca</orig><reg resp="AM">Se un'oncia</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>po<metamark function="add" type="caret"><add place="above">l</add></metamark>vere</orig><reg resp="AM">polvere</reg></choice>
+                  <lb/> <choice><orig>volle vnonca</orig><reg resp="AM">volle un'oncia</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> pallotta<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>ovse jᵃ onca</orig><reg resp="AM">ovver se una oncia</reg></choice>
+                  <lb/> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di </reg></expan></choice><choice><orig>pallotta vole vnonca</orig><reg resp="AM">pallotta vole<note type="critical" n="1">'volle ... vole': o si tratta di 'volle ... volle' o di 'vole ... vole'.</note> un'oncia</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>poluere</orig><reg resp="AM">polvere</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> che
+                  <lb/> <choice><orig>vora</orig><reg resp="AM">vorrà</reg></choice> 2 <choice><abbr>ōce</abbr><expan><reg resp="AM">once</reg></expan></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>pallota assi acressce
+                  <lb/> re secondo li</orig><reg resp="AM">pallotta? Hassi a crescere secondo li</reg></choice><choice><abbr>ꝺamjtri</abbr><expan><reg resp="AM"> diamitri</reg></expan></choice> della <choice><orig> pallota co 
+                  <lb/> e secondo ilor</orig><reg resp="AM">pallotta, cioè secondo i lor</reg></choice><choice><abbr>ꝺamjtri</abbr><expan><reg resp="AM"> diamitri</reg></expan></choice> <choice><orig>mvltiplicatj</orig><reg resp="AM">multiplicati</reg></choice> <choice><abbr>ī</abbr><expan><reg resp="AM">in</reg></expan></choice>
+                  <lb/> se medesimi<supplied resp="AM" reason="punctuation">,</supplied> come <choice><abbr>ꝺre</abbr><expan><reg resp="AM">dire</reg></expan></choice><supplied resp="AM" reason="punctuation">:</supplied> tal <choice><orig>proportio
                   <lb/> ne ha aessere da poluere apoluere
                   <lb/> quale he da quadrato acquadrato fatto
-                  <lb/> della mvltiplicatione inse de</orig><reg resp="AM">proporzione ha a essere da polvere a polvere, quale è da quadrato a quadrato fatto della multiplicazione in sé de' </reg></choice><choice><abbr>∂amjtri</abbr><expan><reg resp="AM">diamjtri</reg></expan></choice>
-                  <lb/> delle lor pallotte<supplied resp="AM" reason="punctuation">.</supplied>  Come <choice><abbr>∂re</abbr><expan><reg resp="AM">dire</reg></expan></choice><supplied resp="AM" reason="punctuation">:</supplied> io ho
-                  <lb/> <choice><orig>vn</orig><reg resp="AM">un</reg></choice> <choice><abbr>∂amjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> <choice><orig>chee dopio avnaltro e</orig><reg resp="AM">che è doppio a un altro e,</reg></choice> <choice><abbr>∂
+                  <lb/> della mvltiplicatione inse de</orig><reg resp="AM">proporzione ha a essere da polvere a polvere, quale è da quadrato a quadrato fatto della multiplicazione in sé de' </reg></choice><choice><abbr>ꝺamjtri</abbr><expan><reg resp="AM">diamjtri</reg></expan></choice>
+                  <lb/> delle lor pallotte<supplied resp="AM" reason="punctuation">.</supplied>  Come <choice><abbr>ꝺre</abbr><expan><reg resp="AM">dire</reg></expan></choice><supplied resp="AM" reason="punctuation">:</supplied> io ho
+                  <lb/> <choice><orig>vn</orig><reg resp="AM">un</reg></choice> <choice><abbr>ꝺamjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> <choice><orig>chee dopio avnaltro e</orig><reg resp="AM">che è doppio a un altro e,</reg></choice> <choice><abbr>ꝺ
                   <lb/> ro</abbr><expan><reg resp="AM">dirò</reg></expan></choice> <choice><orig>almjnore</orig><reg resp="AM">al minore</reg></choice><supplied resp="AM" reason="punctuation">:</supplied> <choice><orig>vno via vno fa jᵒ eal. dop
-                  <lb/> pio</orig><reg resp="AM">uno via uno fa uno, e al doppio</reg></choice> <choice><abbr>∂ro</abbr><expan><reg resp="AM">dirò</reg></expan></choice> due vie 2 fa 4<supplied resp="AM" reason="punctuation">;</supplied> <choice><orig>e cho chella
+                  <lb/> pio</orig><reg resp="AM">uno via uno fa uno, e al doppio</reg></choice> <choice><abbr>ꝺro</abbr><expan><reg resp="AM">dirò</reg></expan></choice> due vie 2 fa 4<supplied resp="AM" reason="punctuation">;</supplied> <choice><orig>e cho chella
                   <lb/> pa</orig><reg resp="AM">ecco che la pa&lt;llotta&gt;</reg></choice>
                   <figure xml:id="P2-2r">
                      <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_006/693,398,929,1122/full/0/default.jpg"/>
@@ -295,9 +328,9 @@
                </figure>
                <p>
                   <lb/> <choice><orig>Ilcientro della gravita delle
-                  <lb/> piramjde</orig><reg resp="AM">Il centro della gravità delle piramide</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> 2 lati <choice><abbr>equj∂stān
+                  <lb/> piramjde</orig><reg resp="AM">Il centro della gravità delle piramide</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> 2 lati <choice><abbr>equjꝺstān
                   <lb/> tj</abbr><expan><reg resp="AM">equidistanti</reg></expan></choice><note type="critical" n="2">È una svista per 'equali', trattandosi di triangoli isosceli.</note> fia nel <choice><orig>3ᵒ</orig><reg resp="AM">terzo</reg></choice> della sua <choice><abbr>lū
-                  <lb/> geza</abbr><expan><reg resp="AM">lughezza</reg></expan></choice> <choice><abbr>∂uerso</abbr><expan><reg resp="AM">diverso</reg></expan></choice> <choice><orig>labasa</orig><reg resp="AM">la basa</reg></choice><supplied resp="AM" reason="punctuation">.</supplied>
+                  <lb/> geza</abbr><expan><reg resp="AM">lughezza</reg></expan></choice> <choice><abbr>ꝺuerso</abbr><expan><reg resp="AM">diverso</reg></expan></choice> <choice><orig>labasa</orig><reg resp="AM">la basa</reg></choice><supplied resp="AM" reason="punctuation">.</supplied>
                   <figure xml:id="P3-2r">
                      <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_006/98,1154,562,296/full/0/default.jpg"/>
                      <figDesc>Third paragraph 2r</figDesc>
@@ -308,11 +341,11 @@
                   <lb/> <choice><orig>E settu volessi piv vicino
                   <lb/> alla verita deluero</orig><reg resp="AM">E se tu volessi &lt;essere&gt; più vicino alla verità del vero</reg></choice> <choice><abbr>cētro</abbr><expan><reg resp="AM">centro </reg></expan></choice><choice><orig>del
                   <lb/> la gravita del</orig><reg resp="AM">della gravità del</reg></choice> <del rend="strikethrough">meo</del> <choice><orig>semjcirchu
-                  <lb/> lo</orig><reg resp="AM">semicirculo</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>∂uj∂lo</abbr><expan><reg resp="AM">dividilo</reg></expan></choice> in<choice><abbr>tāte</abbr><expan><reg resp="AM"> tante</reg></expan></choice> <choice><orig>piramjde
+                  <lb/> lo</orig><reg resp="AM">semicirculo</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝺujꝺlo</abbr><expan><reg resp="AM">dividilo</reg></expan></choice> in<choice><abbr>tāte</abbr><expan><reg resp="AM"> tante</reg></expan></choice> <choice><orig>piramjde
                   <lb/> chella curujta dellalor basa
                   <lb/> rimangha quas insensibi
                   <lb/> le ecquasi paia linja retta
-                  <lb/> e poj tienj ilmodo quj</orig><reg resp="AM">piramide che la curvità della lor base rimanga quasi insensibile<note type="critical" n="3">La differenza tra arco e corda è quasi nulla, settore e triangolo quasi coincidono.</note> e quasi paia linia retta, e poi tieni il modo qui</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><abbr>soꝓa</abbr><expan><reg resp="AM">sopra</reg></expan></choice>
+                  <lb/> e poj tienj ilmodo quj</orig><reg resp="AM">piramide che la curvità della lor base rimanga quasi insensibile<note type="critical" n="3">La differenza tra arco e corda è quasi nulla, settore e triangolo quasi coincidono.</note> e quasi paia linia retta, e poi tieni il modo qui</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><abbr>soꝓa</abbr><expan><reg resp="AM">sopra</reg></expan></choice>
                   <lb/> figurato<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>earaj quasi lauerita
                   <lb/> deluero</orig><reg resp="AM">e arai quasi la verità del vero</reg></choice> <choice><abbr>ꝓdetto</abbr><expan><reg resp="AM">predetto</reg></expan></choice> <choice><abbr>cētro</abbr><expan><reg resp="AM">centro</reg></expan></choice><supplied resp="AM" reason="punctuation">.</supplied>
                   <figure xml:id="P4-2r">
@@ -343,7 +376,7 @@
                </figure>
                <div type="text-column">
                   <p>
-                     <lb/> <choice><orig>se</orig><reg resp="AM">Se</reg></choice> <del rend="strikethrough">lla rota</del> <choice><orig>nellj stremj</orig><reg resp="AM">nelli stremi</reg></choice> del <choice><abbr>∂amjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> della rota <choice><orig>sara
+                     <lb/> <choice><orig>se</orig><reg resp="AM">Se</reg></choice> <del rend="strikethrough">lla rota</del> <choice><orig>nellj stremj</orig><reg resp="AM">nelli stremi</reg></choice> del <choice><abbr>ꝺamjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> della rota <choice><orig>sara
                      <lb/> appichati que pesi equalj. e posti nelsito delle qualita
                      <lb/> sanza dubio seessi</orig><reg resp="AM">sarà appiccicati due pesi equali e posti nel sito dell'equalità<note type="critical" n="1">Linea orizzontale.</note>, sanza dubbio, se essi</reg></choice> <choice><abbr>fiētrattj</abbr><expan><reg resp="AM">fien tratti</reg></expan></choice> <choice><orig>desso sito delle qualita essi</orig><reg resp="AM">d'esso sito dell'equalità, essi</reg></choice>
                      <lb/> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>se maj <choice><abbr>nōuj</abbr><expan><reg resp="AM">non vi</reg></expan></choice> <choice><orig>ritornerano</orig><reg resp="AM">ritorneranno</reg></choice><supplied resp="AM" reason="punctuation">.</supplied>
@@ -357,11 +390,11 @@
             <div type="aligned-text">
                <p>
                   <lb/> <choice><orig>Provasi incontrario della propositione</orig><reg resp="AM">Provassi in contrario della preposizione</reg></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice><choice><orig>laversario</orig><reg resp="AM">l'avversario</reg></choice><note type="critical" n="2">Da parte dell'avversario, che diviene il soggetto del verbo 'dico'. Oppure si può seguire Carusi che interpunge diversamente: 'per l'avversario dico', ossia Leonardo parla a nome dell'avversario. (Ma si veda la cancellatura nel capoverso successivo: "Qui si risponde pel proponitore").</note>
-                  <lb/> <choice><abbr>∂cho</abbr><expan><reg resp="AM">dico</reg></expan></choice> <choice><abbr>checiascū</abbr><expan><reg resp="AM">che ciascun</reg></expan></choice> <choice><orig>de</orig><reg resp="AM">de'</reg></choice> pesi a c desidera <choice><abbr>∂sscendere</abbr><expan><reg resp="AM">discendere</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>mac 
-                  <lb/> quello al qual fia aparechiato moto piv</orig><reg resp="AM">ma quello al qual fia apparecchiato moto più</reg></choice> <choice><abbr>∂ritto</abbr><expan><reg resp="AM">diritto</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <del rend="strikethrough">sa p</del> <choice><orig>sa
-                  <lb/> ra piv</orig><reg resp="AM">sarà più</reg></choice> <choice><abbr>∂ssposto</abbr><expan><reg resp="AM">disposto</reg></expan></choice> al <choice><abbr>∂sscēso</abbr><expan><reg resp="AM">discenso</reg></expan></choice> <choice><orig>che cquello che ara moto piv ob 
-                  <lb/> bliquo adunque essendo a d moto piv vicino al</orig><reg resp="AM">che quello che arà moto più obbliquo. Adunque, essendo a d moto più vicino al </reg></choice><choice><abbr>∂ret
-                  <lb/> to</abbr><expan><reg resp="AM">diretto</reg></expan></choice><note type="critical" n="3">Linea verticale.</note> <choice><orig>chelmoto c f. apeso</orig><reg resp="AM">che 'l moto c f, a peso</reg></choice> <choice><abbr>∂sscēdera</abbr><expan><reg resp="AM">discenderà</reg></expan></choice> <choice><orig>luj come corpopiv</orig><reg resp="AM">lui come corpo più</reg></choice>
+                  <lb/> <choice><abbr>ꝺcho</abbr><expan><reg resp="AM">dico</reg></expan></choice> <choice><abbr>checiascū</abbr><expan><reg resp="AM">che ciascun</reg></expan></choice> <choice><orig>de</orig><reg resp="AM">de'</reg></choice> pesi a c desidera <choice><abbr>ꝺsscendere</abbr><expan><reg resp="AM">discendere</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>mac 
+                  <lb/> quello al qual fia aparechiato moto piv</orig><reg resp="AM">ma quello al qual fia apparecchiato moto più</reg></choice> <choice><abbr>ꝺritto</abbr><expan><reg resp="AM">diritto</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <del rend="strikethrough">sa p</del> <choice><orig>sa
+                  <lb/> ra piv</orig><reg resp="AM">sarà più</reg></choice> <choice><abbr>ꝺssposto</abbr><expan><reg resp="AM">disposto</reg></expan></choice> al <choice><abbr>ꝺsscēso</abbr><expan><reg resp="AM">discenso</reg></expan></choice> <choice><orig>che cquello che ara moto piv ob 
+                  <lb/> bliquo adunque essendo a d moto piv vicino al</orig><reg resp="AM">che quello che arà moto più obbliquo. Adunque, essendo a d moto più vicino al </reg></choice><choice><abbr>ꝺret
+                  <lb/> to</abbr><expan><reg resp="AM">diretto</reg></expan></choice><note type="critical" n="3">Linea verticale.</note> <choice><orig>chelmoto c f. apeso</orig><reg resp="AM">che 'l moto c f, a peso</reg></choice> <choice><abbr>ꝺsscēdera</abbr><expan><reg resp="AM">discenderà</reg></expan></choice> <choice><orig>luj come corpopiv</orig><reg resp="AM">lui come corpo più</reg></choice>
                   <lb/> <choice><abbr>pōderoso</abbr><expan><reg resp="AM">ponderoso</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>he c seguira ilmoto contrario come corpo 
                   <lb/> piu lieue</orig><reg resp="AM">e c seguirà il moto contrario come corpo più lieve</reg></choice><supplied resp="AM" reason="punctuation">.</supplied>
                   <figure xml:id="P3-2v">
@@ -371,14 +404,14 @@
                </p>
 
                <p>
-                  <lb/> Qui si <choice><abbr>risspōde</abbr><expan><reg resp="AM">risponde</reg></expan></choice> <del rend="strikethrough">pel proponitore</del> <choice><orig>che selpeso a</orig><reg resp="AM">che, se 'l peso a</reg></choice> <choice><abbr>∂sscē
+                  <lb/> Qui si <choice><abbr>risspōde</abbr><expan><reg resp="AM">risponde</reg></expan></choice> <del rend="strikethrough">pel proponitore</del> <choice><orig>che selpeso a</orig><reg resp="AM">che, se 'l peso a</reg></choice> <choice><abbr>ꝺsscē
                   <lb/> dera</abbr><expan><reg resp="AM">discenderà</reg></expan></choice> <choice><orig>.</orig><reg resp="AM"> </reg></choice> in d <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la <choice><orig>linja</orig><reg resp="AM">linia</reg></choice> a d<supplied resp="AM" reason="punctuation">,</supplied> c peso <choice><abbr>mōtera</abbr><expan><reg resp="AM">monterà</reg></expan></choice> in e <choice><abbr>ꝓ</abbr><expan><reg resp="AM">per </reg></expan></choice>la
                   <lb/> <choice><orig>linja c e. laqualcosa e in possibile conco sia chega me</orig><reg resp="AM">linia c e. La qual cosa è impossibile, con ciò sia che già m'è</reg></choice>
                   <lb/> <choice><abbr>cōcesso</abbr><expan><reg resp="AM">concesso</reg></expan></choice> <choice><orig>chele</orig><reg resp="AM">che le</reg></choice> cose equali infra loro <choice><abbr>nō</abbr><expan><reg resp="AM">non </reg></expan></choice>si <choice><abbr>suꝓano</abbr><expan><reg resp="AM">superano</reg></expan></choice><supplied resp="AM" reason="punctuation">.</supplied> <del rend="strikethrough">epo</del>
-                  <lb/> <choice><orig>adunque essendo epesi e qualj</orig><reg resp="AM">Adunque, essendo e pesi equali</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> a c<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>e de qualj sono le
+                  <lb/> <choice><orig>adunque essendo epesi e qualj</orig><reg resp="AM">Adunque, essendo e pesi equali</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> a c<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>e de qualj sono le
                   <lb/> b della bilanca b a he b c edequalj sono liarchi</orig><reg resp="AM">ed equali sono le braccia della bilancia b a e b c, ed equali sono li archi de' moti</reg></choice> <metamark function="add" type="caret"><add place="above">de motj</add></metamark> a d <choice><orig>he
                   <lb/> c e colle lor corde essaette equali adunque qui non ce cha
-                  <lb/> vsa</orig><reg resp="AM">e c e colle lor corde e saette equali, adunque qui non c'è causa</reg></choice> <choice><orig><del rend="strikethroug"><abbr>∂ ∂</abbr></del></orig></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di </reg></expan></choice>moto<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>chome ga econfermo</orig><reg resp="AM">come già è confermo</reg></choice> dalla <choice><abbr>speriēza</abbr><expan><reg resp="AM">sperienza</reg></expan></choice><supplied resp="AM" reason="punctuation">.</supplied>
+                  <lb/> vsa</orig><reg resp="AM">e c e colle lor corde e saette equali, adunque qui non c'è causa</reg></choice> <choice><orig><del rend="strikethroug"><abbr>ꝺ ꝺ</abbr></del></orig></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di </reg></expan></choice>moto<supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>chome ga econfermo</orig><reg resp="AM">come già è confermo</reg></choice> dalla <choice><abbr>speriēza</abbr><expan><reg resp="AM">sperienza</reg></expan></choice><supplied resp="AM" reason="punctuation">.</supplied>
                   <figure xml:id="P4-2v">
                      <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_007/31,1377,1465,604/full/0/default.jpg"/>
                      <figDesc>Fourth paragraph 2v</figDesc>
@@ -402,11 +435,11 @@
             <p>
                <lb/> <choice><orig>Lasscientia  strumentale  ov  machinale  
                <lb/> e nobilissima</orig><reg resp="AM">La scienzia strumentale ovver machinale è nobilissima</reg></choice> <choice><abbr>essoꝓa</abbr><expan><reg resp="AM">e sopra</reg></expan></choice> <del rend="strikethrough">p</del> tutte <choice><orig>laltre vtilissima</orig><reg resp="AM">l'altre utilissima</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>cō
-               <lb/> co</abbr><expan><reg resp="AM">con ciò </reg></expan></choice>sia che <choice><abbr>me∂ante</abbr><expan><reg resp="AM">mediante</reg></expan></choice> quella tutti <choice><orig>licorpi anj  
+               <lb/> co</abbr><expan><reg resp="AM">con ciò </reg></expan></choice>sia che <choice><abbr>meꝺante</abbr><expan><reg resp="AM">mediante</reg></expan></choice> quella tutti <choice><orig>licorpi anj  
                <lb/> mati</orig><reg resp="AM">li corpi animati</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig><metamark function="add" type="caret"><add place="above">cheanno moto</add></metamark></orig><reg resp="AM">che hanno moto</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> fanno tutte loro <choice><abbr>oꝓationi</abbr><expan><reg resp="AM">operazioni</reg></expan></choice><supplied resp="AM" reason="punctuation">.</supplied> <choice><orig>e cquali moti  
                <lb/> nasscano dalcentro  della  lor  graujta  che  e possto  
-               <lb/> inmezo apparte</orig><reg resp="AM">E quali moti nascano dal centro della lor gravità, che è posto in mezzo a parte</reg></choice><note type="critical" n="1">Parti.</note> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> pesi <choice><abbr>∂sequali</abbr><expan><reg resp="AM">disequali</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>e acquesto  
-               <lb/> charesstia o doujtia</orig><reg resp="AM">e ha questo<note type="critical" n="2">Espressione involuta e incompleta.</note> carestia o dovizia</reg></choice> <choice><orig>∂</orig><expan><reg resp="AM">di</reg></expan></choice> mvsscoli <choice><orig>edetiā</orig><expan><reg resp="AM">ed etiam</reg></expan></choice> <choice><orig>lie  
+               <lb/> inmezo apparte</orig><reg resp="AM">E quali moti nascano dal centro della lor gravità, che è posto in mezzo a parte</reg></choice><note type="critical" n="1">Parti.</note> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> pesi <choice><abbr>ꝺsequali</abbr><expan><reg resp="AM">disequali</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>e acquesto  
+               <lb/> charesstia o doujtia</orig><reg resp="AM">e ha questo<note type="critical" n="2">Espressione involuta e incompleta.</note> carestia o dovizia</reg></choice> <choice><orig>ꝺ</orig><expan><reg resp="AM">di</reg></expan></choice> mvsscoli <choice><orig>edetiā</orig><expan><reg resp="AM">ed etiam</reg></expan></choice> <choice><orig>lie  
                <lb/> va  e contra  lieua</orig><reg resp="AM">lieva e contra lieva.</reg></choice> 
                <figure xml:id="P1-3r">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_008/143,107,1095,619/full/0/default.jpg"/>                     
@@ -443,7 +476,7 @@
             <p id="margin-top-3v">
                <lb/> <choice><orig>varie figure dan  
                <lb/> nno nelle obbliquj  
-               <lb/> ta</orig><reg resp="AM">Varie figure danno nelle obliquità</reg></choice> <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>se</orig><reg resp="AM">sé</reg></choice> vari pesi<supplied resp="AM" reason="punctuation">.</supplied>
+               <lb/> ta</orig><reg resp="AM">Varie figure danno nelle obliquità</reg></choice> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>se</orig><reg resp="AM">sé</reg></choice> vari pesi<supplied resp="AM" reason="punctuation">.</supplied>
                <figure xml:id="P1-3v">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_009/56,287,591,282/full/0/default.jpg"/>                     
                   <figDesc>First paragraph 3v</figDesc>
@@ -459,7 +492,7 @@
                </figure>
 
                <p>
-                  <lb/> <choice><abbr>∂ce</abbr><expan><reg resp="AM">Dice</reg></expan></choice> <choice><orig>quj lauersario chellaste 
+                  <lb/> <choice><abbr>ꝺce</abbr><expan><reg resp="AM">Dice</reg></expan></choice> <choice><orig>quj lauersario chellaste 
                   <lb/> p m sincuruera tanto chella 
                   <lb/> sifara colli stremi in tale spa
                   <lb/> tio che infra essi stremj ente 
@@ -519,7 +552,7 @@
                </p>
 
                <p>
-                  <lb/> Allo stremo <choice><abbr>∂</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>quella asste sara proibito ilmoto
+                  <lb/> Allo stremo <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> <choice><orig>quella asste sara proibito ilmoto
                   <lb/> circunvolubile intorno alsuo oposito stremo</orig><reg resp="AM">quella aste sarà proibito il moto circunvolubile intorno al suo opposito stremo</reg></choice>
                   <lb/> <del rend="strikethrough">al quale sara congunta la corda rettilinja che
                   <lb/> ssta ste</del> da <choice><orig>cquella corta</orig><reg resp="AM">quella corda</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> che<choice><abbr>ꝓretta</abbr><expan><reg resp="AM"> per retta</reg></expan></choice> linia <del rend="strikethrough">sas
@@ -535,14 +568,14 @@
                   <lb/> <choice><orig>Come sellaste fussi la linia p q ello stremo al  
                   <lb/> quale e proibito il moto circunvolubile q m 
                   <lb/> sia lostremo q ella corda rettilinia ferma   
-                  <lb/> sotto esso centro</orig><reg resp="AM">Come se l'aste fussi la linia p q e lo stremo, al quale è proibito il moto circunvolubile q m, sia lo stremo q, e la corda rettilinia ferma sotto esso centro</reg></choice> <del rend="strikethrough">di</del> <choice><abbr>circūuolubile</abbr><expan><reg resp="AM">circunvolubile</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> sia <choice><orig> . </orig><reg resp="AM"> </reg></choice> o q<supplied resp="AM" reason="punctuation">.</supplied> <choice><abbr>∂co</abbr><expan><reg resp="AM">Dico</reg></expan></choice> 
+                  <lb/> sotto esso centro</orig><reg resp="AM">Come se l'aste fussi la linia p q e lo stremo, al quale è proibito il moto circunvolubile q m, sia lo stremo q, e la corda rettilinia ferma sotto esso centro</reg></choice> <del rend="strikethrough">di</del> <choice><abbr>circūuolubile</abbr><expan><reg resp="AM">circunvolubile</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> sia <choice><orig> . </orig><reg resp="AM"> </reg></choice> o q<supplied resp="AM" reason="punctuation">.</supplied> <choice><abbr>ꝺco</abbr><expan><reg resp="AM">Dico</reg></expan></choice> 
                   <lb/> che <choice><orig>maj</orig><reg resp="AM">mai</reg></choice> lo stremo <del rend="strikethrough">q</del> <choice><orig>. q .</orig><reg resp="AM">q</reg></choice> <choice><orig>dellaste</orig><reg resp="AM">dell'aste</reg></choice> <choice><abbr>nonādera</abbr><expan><reg resp="AM">non anderà</reg></expan></choice> in m<supplied resp="AM" reason="punctuation">,</supplied>
                   <lb/> <choice><orig>sella corda</orig><reg resp="AM">se la corda</reg></choice> <choice><abbr>nō</abbr><expan><reg resp="AM">non</reg></expan></choice> <choice><orig>si ronp – provasi cosi  
                   <lb/> sellaste p q sa collo stremo . q . amouere in m essa  
-                  <lb/> fara  la  curua  q m </orig><reg resp="AM">si rompe. Provasi così. Se l'aste p q s'ha collo stremo q a muovere in m, essa farà la curva q m</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perché</reg></expan></choice> tale aste <choice><orig>e ilmezo</orig><reg resp="AM">è il mezzo</reg></choice> <choice><abbr>∂amjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> 
+                  <lb/> fara  la  curua  q m </orig><reg resp="AM">si rompe. Provasi così. Se l'aste p q s'ha collo stremo q a muovere in m, essa farà la curva q m</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perché</reg></expan></choice> tale aste <choice><orig>e ilmezo</orig><reg resp="AM">è il mezzo</reg></choice> <choice><abbr>ꝺamjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> 
                   <lb/> <choice><orig>delcerchio . q m S . ella corda tirata o q nonpo se 
                   <lb/> guire tale stremo dasste da . q . ha . m . sella</orig><reg resp="AM">del cerchio q m S, e la corda tirata o q non po seguire tale stremo d'aste da q a m, s'ella</reg></choice> <choice><abbr>nō</abbr><expan><reg resp="AM">non</reg></expan></choice> <choice><abbr>salūgha</abbr><expan><reg resp="AM">s'allunga</reg></expan></choice>  
-                  <lb/> tutta <choice><orig>laparte</orig><reg resp="AM">la parte</reg></choice> n m<supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perché</reg></expan></choice> ancora lei <choice><orig>essemj</orig><reg resp="AM">è semi</reg></choice><choice><abbr>∂amjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> 
+                  <lb/> tutta <choice><orig>laparte</orig><reg resp="AM">la parte</reg></choice> n m<supplied resp="AM" reason="punctuation">,</supplied> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perché</reg></expan></choice> ancora lei <choice><orig>essemj</orig><reg resp="AM">è semi</reg></choice><choice><abbr>ꝺamjtro</abbr><expan><reg resp="AM">diamitro</reg></expan></choice> 
                   <lb/> <choice><orig>delsuo cerchio q n S . adunque e pur vero .</orig><reg resp="AM">del suo cerchio q n S. Adunque è pur vero</reg></choice> q <choice><abbr>nō</abbr><expan><reg resp="AM">non</reg></expan></choice> <choice><orig>potersimovere</orig><reg resp="AM">potersi movere</reg></choice><supplied resp="AM" reason="punctuation">.</supplied>
                   <figure xml:id="P7-3v">
                      <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_009/20,1664,1035,766/full/0/default.jpg"/>                     

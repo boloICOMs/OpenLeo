@@ -27,7 +27,7 @@
         <a href="index.html" class="logo-container">
             <img src="img/logo.png" alt="Open Leo Logo">
             <div class="logo-text">
-                <span>Open-Leo</span>
+                <span>Open Leo</span>
             </div>
         </a>
         <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
         </section>
 
         <!-- Manuscript & Transcription Viewer -->
-        <section class="viewer-container">
+        <section style='margin-top: 50px;' class="viewer-container">
             <div class="manuscript-viewer">
                 <div class="manuscript-image-wrapper">
 
@@ -82,29 +82,29 @@
                 <!-- Notebook Bookmarks -->
                 <div class="notebook-bookmarks">
                     <button class="bookmark diplomatic active" data-value="diplomatic">Diplomatic edition</button>
-                    <button class="bookmark critical" data-value="critical">Critical edition</button>
+                    <button class="bookmark critical" data-value="critical">Critical edition (A. Marinoni)</button>
                 </div>
                 <div class="transcription-scroll-area">
                     <div class="transcription-title">Transcription: Folio <span id="page-num">1</span></div>
                     <div id="transcription-text" class="transcription-content cormorant-garamond"></div>
-                    <!-- apparatus -->
-                    <div class="apparatus-accordion">
-                        <button class="apparatus-toggle" id="apparatus-toggle" aria-expanded="false"
-                            aria-controls="apparatus-body">
-                            <span>Apparatus</span>
-                            <i class="fas fa-chevron-down apparatus-icon"></i>
+                    <!-- commentary -->
+                    <div class="commentary-accordion">
+                        <button class="commentary-toggle" id="commentary-toggle" aria-expanded="false"
+                            aria-controls="commentary-body">
+                            <span>Commentary</span>
+                            <i class="fas fa-chevron-down commentary-icon"></i>
                         </button>
-                        <div class="apparatus-body" id="apparatus-body" role="region"
-                            aria-labelledby="apparatus-toggle">
-                            <div class="apparatus-content">
-                                <p>the apparatus</p>
+                        <div class="commentary-body" id="commentary-body" role="region"
+                            aria-labelledby="commentary-toggle">
+                            <div class="commentary-content">
+                                <p>the commentary</p>
 
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="viewer-actions">
-                    <a href="#" class="btn-action btn-xml">
+                    <a href="codex.xml" class="btn-action btn-xml">
                         <i class="fas fa-download"></i> Download TEI-XML
                     </a>
                 </div>
@@ -190,7 +190,7 @@
 
     <footer class="fade-in">
         <div class="footer-content">
-            <a href="https://github.com/boloICOMs/OpenLeo" class="github-link">
+            <a href="https://github.com/boloICOMs/Open Leo" class="github-link">
                 <i class="fa-brands fa-github"></i>
             </a>
             <p class="copyright"> All copyrights and related rights remain with their original owners &copy; 2026 Open

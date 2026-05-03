@@ -199,11 +199,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const tempDiv = document.createElement('div');
             tempDiv.appendChild(resultDoc);
 
-            const apparatusSection = document.querySelector('.apparatus-accordion');
+            const commentarySection = document.querySelector('.commentary-accordion');
 
             if (view === 'critical') {
-                if (apparatusSection) apparatusSection.style.display = 'block';
-                updateApparatus(facsId);
+                if (commentarySection) commentarySection.style.display = 'block';
+                updateCommentary(facsId);
 
                 // --- MODIFICHE QUI ---
                 transcriptionText.style.display = 'block';      // Forza il contenitore a essere un blocco verticale
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 transcriptionText.classList.add('critical-mode');
             } else {
-                if (apparatusSection) apparatusSection.style.display = 'none';
+                if (commentarySection) commentarySection.style.display = 'none';
 
                 // --- RIPRISTINO PER DIPLOMATICA ---
                 transcriptionText.style.display = 'flex';       // Torna al tuo layout originale
@@ -284,8 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         }
-        //populate apparatus
-        function updateApparatus(facsId) {
+        //populate commentary
+        function updateCommentary(facsId) {
             let pbElement = null;
             const pbs = codexXml.getElementsByTagNameNS('http://www.tei-c.org/ns/1.0', 'pb');
             const pbsFallback = codexXml.getElementsByTagName('pb');
@@ -342,9 +342,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             html += "</ul>";
 
-            const apparatusContent = document.querySelector('.apparatus-content');
-            if (apparatusContent) {
-                apparatusContent.innerHTML = html;
+            const commentaryContent = document.querySelector('.commentary-content');
+            if (commentaryContent) {
+                commentaryContent.innerHTML = html;
             }
         }
 
@@ -416,16 +416,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* --- Apparatus Accordion --- */
+/* --- Commentary Accordion --- */
 document.addEventListener('DOMContentLoaded', () => {
-    const apparatusToggle = document.getElementById('apparatus-toggle');
-    const apparatusBody = document.getElementById('apparatus-body');
+    const commentaryToggle = document.getElementById('commentary-toggle');
+    const commentaryBody = document.getElementById('commentary-body');
 
-    if (apparatusToggle && apparatusBody) {
-        apparatusToggle.addEventListener('click', () => {
-            const isOpen = apparatusBody.classList.toggle('open');
-            apparatusToggle.setAttribute('aria-expanded', String(isOpen));
-            apparatusToggle.classList.toggle('active', isOpen);
+    if (commentaryToggle && commentaryBody) {
+        commentaryToggle.addEventListener('click', () => {
+            const isOpen = commentaryBody.classList.toggle('open');
+            commentaryToggle.setAttribute('aria-expanded', String(isOpen));
+            commentaryToggle.classList.toggle('active', isOpen);
         });
     }
 });

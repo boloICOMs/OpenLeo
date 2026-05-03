@@ -1,1 +1,1 @@
-# OpenLeo
+# Open Leo
