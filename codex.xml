@@ -81,9 +81,9 @@
       </fileDesc>
    </teiHeader>
   
-  <facsimile>
+   <facsimile>
       <surface xml:id="Varia_95_003">
-         <label>Folio 1r</label>
+         <label>Internal cover</label>
          <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/full/pct:100/0/default.jpg"/>
       </surface>
 
@@ -111,15 +111,15 @@
          <label>Folio 3v</label>
          <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_009/full/pct:100/0/default.jpg"/>
       </surface>
-  </facsimile>
-
-  <text xml:lang='it'>
+   </facsimile>
+ 
+   <text xml:lang='it'>
       <body>
-         <pb n="1r" facs="#Varia_95_003"/>
-         <div id="folio-1r"> 
+         <pb n="Internal Cover" facs="#Varia_95_003"/>
+         <div id="I-cover"> 
             <seg hand="#other-hand" xml:lang='es'>
                <handShift hand="#other-hand"/>Secretos de poluol materiales
-               <figure xml:id="fig-other-hand-1r">
+               <figure xml:id="fig-other-hand-cover">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/147,35,1185,123/full/0/default.jpg"/>
                   <figDesc>Other hand comment</figDesc>
                </figure>
@@ -128,7 +128,7 @@
                <handShift hand="#LdV"/><lb/><choice><orig>dello</orig><reg resp="AM">Dello</reg></choice><choice><abbr> inprōtare</abbr><expan><reg resp="AM"> improntare</reg></expan></choice><note type="critical" resp="AM" n="1">Coniare</note> medaglie.<choice><orig> polta</orig><reg resp="AM"> Polta</reg></choice><note type="critical" resp="AM" n="2">Poltiglia</note> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice><choice><orig>smeriglo</orig><reg resp="AM"> smeriglio</reg></choice> mista<choice><abbr> conacqͣ</abbr><expan><reg resp="AM"> con acqua</reg></expan></choice> vite<supplied resp="AM" reason="punctuation">,</supplied>  
                <lb/><choice><orig> oscaglia <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di </reg></expan></choice>ferro co naceto ho cenere <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> foglie <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> noce . ho cenere</orig><reg resp="AM"> o scaglia di ferro con aceto, o cenere di foglie di noce, o cenere</reg></choice>
                <lb/><choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> paglia <choice><abbr>sottil mẽte</abbr><expan><reg resp="AM">sottilmente</reg></expan></choice> trita<supplied resp="AM" reason="punctuation">.</supplied> 
-               <figure xml:id="P1-1r">
+               <figure xml:id="P1-cover">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/72,147,1572,255/full/0/default.jpg"/>
                   <figDesc>First paragraph</figDesc>
                </figure>
@@ -140,7 +140,7 @@
                <lb/> bere</orig><reg resp="AM"> e la polvere</reg></choice><note type="critical" resp="AM" n="3">Ms. 'polbere'.</note> vie<supplied resp="AM" reason="punctuation">'</supplied> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di </reg></expan></choice><choice><abbr>soꝓa</abbr><expan><reg resp="AM"> sopra</reg></expan></choice> al <choice><orig>pionbo</orig><reg resp="AM">piombo</reg></choice> fonduto<supplied resp="AM" reason="punctuation">;</supplied> la qual <choice><orig>poj</orig><reg resp="AM">poi</reg></choice> sia fregata infra due 
                <lb/> <choice><orig>piasstre daccaio</orig><reg resp="AM">piastre d'acciaio</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> tanto <choice><orig>sipoluerezi</orig><reg resp="AM">si polverizzi</reg></choice><note type="critical" resp="AM" n="4">Polverizzi</note> bene<supplied resp="AM" reason="punctuation">.</supplied><choice><orig> <choice><abbr>ꝺ</abbr><expan><reg resp="AM">di</reg></expan></choice> poi laualo</orig><reg resp="AM"> Di poi lavalo</reg></choice> <choice><orig>choll</orig><reg resp="AM">coll'</reg></choice><choice><abbr>acqͣ</abbr><expan><reg resp="AM">acqua</reg></expan></choice> <choice><orig>dapartire</orig><reg resp="AM">da partire</reg></choice><note type="critical" resp="AM" n="5">Acqua da partire = acqua forte o acido nitritico.</note> 
                <lb/> <choice><orig>e risoluerassi la <choice><abbr>negreꝺne</abbr><expan><reg resp="AM">negredine</reg></expan></choice> delferro ellassciera la poluere netta.</orig><reg resp="AM"> e risolverassi la negredine del ferro e lascerà la polvere netta.</reg></choice> 
-               <figure xml:id="P2-1r">
+               <figure xml:id="P2-cover">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/58,398,1599,388/1200,/0/default.jpg"/>
                   <figDesc>Second paragraph</figDesc>
                </figure>
@@ -150,7 +150,7 @@
                <lb/> ti doppi essi</orig><reg resp="AM">un panno i' molti doppi e si</reg></choice><choice><abbr>ꝓcote</abbr><expan><reg resp="AM"> percote</reg></expan></choice> <choice><abbr>ꝓ</abbr><expan><reg resp="AM"> per</reg></expan></choice> <choice><orig>fiancho</orig><reg resp="AM">fianco</reg></choice> col martello<supplied resp="AM" reason="punctuation">;</supplied> e <choice><orig>cosi sene va poi injsscagle 
                <lb/> a pocho appocho</orig><reg resp="AM">così se ne va poi in iscaglie a poco a poco</reg></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>e poj sipesta</orig><reg resp="AM">e poi si pesta</reg></choice> <choice><abbr>cō</abbr><expan><reg resp="AM">con</reg></expan></choice><choice><orig>faciljta</orig><reg resp="AM"> facilità</reg></choice><supplied resp="AM" reason="punctuation">.</supplied> <choice><orig>essettu lotenessi</orig><reg resp="AM">E se tu lo tenessi</reg></choice> <choice><abbr>soꝓa</abbr><expan><reg resp="AM">sopra</reg></expan></choice> <choice><abbr>lancu
                <lb/> ꝺne</abbr><expan><reg resp="AM">l'ancudine</reg></expan></choice><note type="critical" resp="AM" n="6">Incudine.</note><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>maj</orig><reg resp="AM">mai</reg></choice> <choice><abbr>lorōperesstj</abbr><expan><reg resp="AM">lo romperesti</reg></expan></choice><supplied resp="AM" reason="punctuation">,</supplied> <choice><orig>essendo chosigrosso</orig><reg resp="AM">essendo così grosso</reg></choice><supplied resp="AM" reason="punctuation">.</supplied> 
-               <figure xml:id="P3-1r">
+               <figure xml:id="P3-cover">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/40,787,1583,355/full/0/default.jpg"/>
                   <figDesc>Third paragraph</figDesc>
                </figure>
@@ -164,7 +164,7 @@
                <lb/> porfido siconsuma essi mjssta collo ssmalto ello guasta</orig><reg resp="AM">purificato e netto. E se tu lo macini sul porfido, esso porfido si consuma e si mista collo smalto, e lo guasta;</reg></choice>
                <lb/> <choice><orig>ellacqua da partire maj lolieva da dosso</orig><reg resp="AM">e l'acqua da partire mai lo lieva da dosso,</reg></choice> <del rend="strikethrough">s</del> <choice><abbr>ꝓche</abbr><expan><reg resp="AM">perchè</reg></expan></choice> <choice><abbr>nō</abbr><expan><reg resp="AM">non</reg></expan></choice> po 
                <lb/> <choice><orig>risoluere</orig><reg resp="AM">risolvere</reg></choice> tale porfido<supplied resp="AM" reason="punctuation">.</supplied> 
-               <figure xml:id="P4-1r">
+               <figure xml:id="P4-cover">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/14,1127,1628,578/full/0/default.jpg"/>
                   <figDesc>Fourth paragraph</figDesc>
                </figure>
@@ -172,13 +172,13 @@
             <p>
                <lb/> <choice><orig>se volli fare colore bello azurro risoluj lossmalto fatto 
                <lb/> coltartaro e po li leua il sal dadosso.</orig><reg resp="AM">Se volli fare colore bello azzurro, risolvi lo smalto fatto col tartaro, e po' li leva il sal da dosso.</reg></choice>
-               <figure xml:id="P5-1r">
+               <figure xml:id="P5-cover">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/55,1694,1571,189/full/0/default.jpg"/>
                   <figDesc>Fifth paragraph</figDesc>
                </figure>
             </p>
             <p><choice><orig>Lottone vetri fichato fa bello rosso</orig><reg resp="AM">L'ottone vetrificato fa bello rosso.</reg></choice> <note type="critical" resp="AM" n="7">In alto una scritta d'altra mano in lingua spagnola: Secretos de polvos materiales.</note>
-               <figure xml:id="P6-1r">
+               <figure xml:id="P6-cover">
                   <graphic url="https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:19:47:7:wdl_19477:Varia_95_003/55,1884,1620,183/full/0/default.jpg"/>
                   <figDesc>Sixth paragraph</figDesc>
                </figure>
@@ -584,7 +584,6 @@
                </p>
             </div>
          </div>
-
       </body>
   </text>
 </TEI>
