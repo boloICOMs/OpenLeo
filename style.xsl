@@ -86,10 +86,7 @@
 
     <xsl:template match="tei:figure">
         <xsl:choose>
-            <!-- HIDDEN TRIGGER: If nested in text and has NO 'place' attribute, 
-                 it is a background trigger (like the Spanish comments). Hidden in both modes. -->
             <xsl:when test="(ancestor::tei:p or ancestor::tei:seg) and not(@place)">
-                <!-- Return nothing -->
             </xsl:when>
             
             <xsl:when test="$editionType = 'critical'">

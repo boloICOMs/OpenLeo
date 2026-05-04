@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang='en'>
-  <teiHeader>
+   <teiHeader>
       <fileDesc>
          <titleStmt>
             <title>Scholarly Digital Edition of the Codex on the Flight of birds: diplomatic and critical transcription</title>
@@ -79,7 +79,7 @@
             </particDesc>
          </profileDesc>
       </fileDesc>
-  </teiHeader>
+   </teiHeader>
   
   <facsimile>
       <surface xml:id="Varia_95_003">

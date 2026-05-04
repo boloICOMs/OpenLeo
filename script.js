@@ -3,7 +3,6 @@ console.log("script.js loaded");
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOMContentLoaded fired");
 
-    /* --- 1. Variabili Globali del DOM --- */
     const nav = document.querySelector('nav');
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const navLinks = document.getElementById('nav-links');
@@ -20,43 +19,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function loadPage(pageId) {
-        // 1. Recuperiamo il valore selezionato nella tendina in questo momento
-        const editionSelector = document.getElementById('edition-selector'); // Assicurati che l'ID sia corretto
+
+        const editionSelector = document.getElementById('edition-selector');
         const currentView = editionSelector ? editionSelector.value : 'diplomatic';
 
-        // 2. Chiamiamo il rendering passando la visualizzazione attuale
         const content = renderTranscription(pageId, currentView);
 
-        // 3. Aggiorniamo il contenitore
         document.getElementById('transcription-box').innerHTML = content;
 
-        // 4. (Opzionale) Aggiorniamo l'ID pagina corrente per i futuri click
         currentPageId = pageId;
     }
-    /* --- 2. Funzione di Adattamento Altezza (Ottimizzata) --- */
-    // Questa funzione sincronizza il div del testo all'altezza dell'immagine
+
     function adjustTranscriptionHeight() {
         if (!manuscriptImg || !transcriptionText) return;
-
-        // Usiamo getBoundingClientRect per la massima precisione
         const imgHeight = manuscriptImg.getBoundingClientRect().height;
 
         if (imgHeight > 0) {
-            const boxPadding = 20; // Spazio per margini e bottoni
+            const boxPadding = 20;
             transcriptionText.style.height = `${imgHeight - boxPadding}px`;
             transcriptionText.style.maxHeight = `${imgHeight - boxPadding}px`;
             transcriptionText.style.overflowY = 'auto';
 
-            // Log di controllo
             console.log(`Height synchronized: ${imgHeight}px`);
         }
     }
 
-    // Assicuriamoci che l'altezza si aggiorni quando l'immagine finisce di caricare
     manuscriptImg?.addEventListener('load', adjustTranscriptionHeight);
     window.addEventListener('resize', adjustTranscriptionHeight);
 
-    /* --- 3. Sticky Header Logic --- */
     let lastScrollTop = 0;
     const scrollThreshold = window.innerHeight / 2;
     if (nav) {
@@ -72,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, false);
     }
 
-    /* --- 4. Mobile Menu Logic --- */
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
         navLinks.querySelectorAll('a').forEach(link => {
@@ -80,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- 5. Specchio (Mirror) Logic --- */
+
     if (mirrorBtn && manuscriptImg) {
         mirrorBtn.addEventListener('click', () => {
             manuscriptImg.classList.toggle('mirrored');
@@ -88,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- 6. Media Carousel --- */
+
     if (carousel && prevArrow && nextArrow) {
         const scrollAmount = 330;
         prevArrow.addEventListener('click', () => carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
@@ -100,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- 7. Manuscript Viewer & XML Logic --- */
     if (manuscriptImg && transcriptionText) {
         let codexXml = null;
         let codexXsl = null;
@@ -119,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 codexXml = parser.parseFromString(xmlText, 'text/xml');
                 codexXsl = parser.parseFromString(xslText, 'text/xml');
 
-                // Check for parsing errors
+
                 const parserErrorElements = codexXml.getElementsByTagName('parsererror');
                 if (parserErrorElements.length > 0) {
                     const errorMsg = parserErrorElements[0].textContent || 'Unknown XML parsing error';
@@ -130,10 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const teiNS = 'http://www.tei-c.org/ns/1.0';
                 const xmlNS = 'http://www.w3.org/XML/1998/namespace';
 
-                // Get all pb elements - try multiple methods
+
                 let pbElements = Array.from(codexXml.getElementsByTagName('pb'));
 
-                // Get all surface elements - try multiple methods
                 let surfaceElements = Array.from(codexXml.getElementsByTagName('surface'));
 
                 console.log(`Found ${pbElements.length} pb elements and ${surfaceElements.length} surface elements`);
@@ -205,28 +192,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (commentarySection) commentarySection.style.display = 'block';
                 updateCommentary(facsId);
 
-                // --- MODIFICHE QUI ---
-                transcriptionText.style.display = 'block';      // Forza il contenitore a essere un blocco verticale
-                transcriptionText.style.whiteSpace = 'normal'; // Permette al testo di andare a capo
-                transcriptionText.style.overflowX = 'hidden';  // Impedisce lo scroll orizzontale
-                // ---------------------
+
+                transcriptionText.style.display = 'block';
+                transcriptionText.style.whiteSpace = 'normal';
+                transcriptionText.style.overflowX = 'hidden';
+
 
                 transcriptionText.classList.add('critical-mode');
             } else {
                 if (commentarySection) commentarySection.style.display = 'none';
 
-                // --- RIPRISTINO PER DIPLOMATICA ---
-                transcriptionText.style.display = 'flex';       // Torna al tuo layout originale
-                transcriptionText.style.whiteSpace = 'nowrap'; // O quello che usi per la diplomatica
+                transcriptionText.style.display = 'flex';
+                transcriptionText.style.whiteSpace = 'nowrap';
                 transcriptionText.style.overflowX = 'auto';
-                // ----------------------------------
 
                 transcriptionText.classList.remove('critical-mode');
             }
 
             const content = tempDiv.innerHTML;
 
-            // Wait for the next tick to ensure DOM is updated
+
             setTimeout(() => {
                 attachHighlightListeners();
             }, 0);
@@ -234,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return content;
         }
 
-        /* --- New: Figure Highlight Logic --- */
         function attachHighlightListeners() {
             const captions = document.querySelectorAll('.critical-figure-caption');
             const wrapper = document.querySelector('.manuscript-image-wrapper');
@@ -255,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const nw = img.naturalWidth;
                     const nh = img.naturalHeight;
 
-                    if (!nw || !nh) return; // Wait for image to load
+                    if (!nw || !nh) return;
 
                     const highlight = document.createElement('div');
                     highlight.className = 'image-highlight';
@@ -265,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     let width = (w / nw * 100);
                     let height = (h / nh * 100);
 
-                    // Handle mirrored state
+
                     if (img.classList.contains('mirrored')) {
                         left = 100 - ((x + w) / nw * 100);
                     }
@@ -284,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         }
-        //populate commentary
+
         function updateCommentary(facsId) {
             let pbElement = null;
             const pbs = codexXml.getElementsByTagNameNS('http://www.tei-c.org/ns/1.0', 'pb');
@@ -303,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let currentNode = pbElement.nextSibling;
                 while (currentNode) {
                     if (currentNode.nodeType === 1 && (currentNode.tagName === 'pb' || currentNode.tagName.endsWith(':pb'))) {
-                        break; // Stop at next pb
+                        break;
                     }
                     if (currentNode.nodeType === 1) {
                         if ((currentNode.tagName === 'note' || currentNode.tagName.endsWith(':note')) && currentNode.getAttribute('type') === 'critical') {
@@ -327,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let html = "<ul>";
             if (notes.length > 0) {
-                // Sort by the numerical value of 'n'
+
                 notes.sort((a, b) => {
                     const valA = parseInt(a.getAttribute('n')) || 0;
                     const valB = parseInt(b.getAttribute('n')) || 0;
@@ -354,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return activeTab ? activeTab.getAttribute('data-value') : 'diplomatic';
         }
 
-        // Edition Selection via Bookmarks
+
         const bookmarks = document.querySelectorAll('.bookmark');
         bookmarks.forEach(bookmark => {
             bookmark.addEventListener('click', function () {
@@ -369,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function updateManuscriptPage() {
-            // Effetto dissolvenza in uscita
+
             manuscriptImg.style.opacity = 0;
             transcriptionText.style.opacity = 0;
 
@@ -380,12 +364,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 manuscriptImg.src = data.img;
 
-                // Passiamo currentView così la pagina nuova mantiene la scelta fatta
                 transcriptionText.innerHTML = renderTranscription(data.facs, currentView);
 
                 if (pageNumDisplay) pageNumDisplay.innerText = data.pageNum;
 
-                // Riattiva l'opacità quando l'immagine è pronta
                 manuscriptImg.onload = () => {
                     manuscriptImg.style.opacity = 1;
                     transcriptionText.style.opacity = 1;
@@ -416,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* --- Commentary Accordion --- */
+
 document.addEventListener('DOMContentLoaded', () => {
     const commentaryToggle = document.getElementById('commentary-toggle');
     const commentaryBody = document.getElementById('commentary-body');
