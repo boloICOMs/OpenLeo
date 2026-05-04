@@ -2018,6 +2018,13 @@ del {
     text-align: left;
 }
 
+.container_bio {
+    display: flex; /* Aligns children in a row */
+    align-items: center; /* Vertically centers the text with the image */
+    gap: 20px;
+
+}
+
 .project-section,
 .biography-section h2 {
     font-size: 3rem;
