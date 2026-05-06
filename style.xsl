@@ -12,13 +12,16 @@
     <xsl:template match="/">
         <div class="manuscript-page-sheet">
             <div class="tei-transcription">
-                <xsl:apply-templates select="//tei:pb[@facs=$pageId]"/>
+        <xsl:apply-templates select="//tei:pb[@facs=$pageId] | //*[local-name()='pb'][@facs=$pageId]"/>
             </div>
         </div>
     </xsl:template>
 
-    <xsl:template match="tei:pb">
-        <xsl:apply-templates select="following-sibling::node()[preceding-sibling::tei:pb[1]/@facs = $pageId and not(self::tei:pb)]" />
+    <xsl:template match="tei:pb | *[local-name()='pb']">
+        <xsl:variable name="myFacs" select="@facs"/>
+        <xsl:apply-templates select="following-sibling::node()[
+            preceding-sibling::*[local-name()='pb'][1]/@facs = $pageId
+            and not(local-name(.) = 'pb')]" />
     </xsl:template>
 
     <xsl:template match="tei:div | tei:div[@type='transcription-container'] | tei:div[@type='column-left-2r'] | tei:div[@type='column-right-2r']">
