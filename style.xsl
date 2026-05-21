@@ -310,5 +310,5 @@
     
   
     <xsl:template match="tei:metamark"><span class="tei-metamark"><xsl:apply-templates/><span class="caret">^</span></span></xsl:template>
-
+    
 </xsl:stylesheet>
