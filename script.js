@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const manuscriptPrevBtn = document.getElementById('prev-btn');
     const manuscriptNextBtn = document.getElementById('next-btn');
 
+    let currentPageId = null;
 
     function loadPage(pageId) {
-
         const editionSelector = document.getElementById('edition-selector');
         const currentView = editionSelector ? editionSelector.value : 'diplomatic';
 
@@ -69,14 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     if (mirrorBtn && manuscriptImg) {
         mirrorBtn.addEventListener('click', () => {
             manuscriptImg.classList.toggle('mirrored');
             mirrorBtn.classList.toggle('active');
         });
     }
-
 
     if (carousel && prevArrow && nextArrow) {
         const scrollAmount = 330;
@@ -107,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 codexXml = parser.parseFromString(xmlText, 'text/xml');
                 codexXsl = parser.parseFromString(xslText, 'text/xml');
 
-
                 const parserErrorElements = codexXml.getElementsByTagName('parsererror');
                 if (parserErrorElements.length > 0) {
                     const errorMsg = parserErrorElements[0].textContent || 'Unknown XML parsing error';
@@ -115,12 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const pages = [];
-                const teiNS = 'http://www.tei-c.org/ns/1.0';
-                const xmlNS = 'http://www.w3.org/XML/1998/namespace';
-
 
                 let pbElements = Array.from(codexXml.getElementsByTagName('pb'));
-
                 let surfaceElements = Array.from(codexXml.getElementsByTagName('surface'));
 
                 console.log(`Found ${pbElements.length} pb elements and ${surfaceElements.length} surface elements`);
@@ -142,8 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 console.log(`Surface map: ${Object.keys(surfaceMap).join(', ')}`);
-
-
 
                 for (let pb of pbElements) {
                     const facsAttr = pb.getAttribute('facs');
@@ -192,11 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (commentarySection) commentarySection.style.display = 'block';
                 updateCommentary(facsId);
 
-
                 transcriptionText.style.display = 'block';
                 transcriptionText.style.whiteSpace = 'normal';
                 transcriptionText.style.overflowX = 'hidden';
-
 
                 transcriptionText.classList.add('critical-mode');
             } else {
@@ -210,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const content = tempDiv.innerHTML;
-
 
             setTimeout(() => {
                 attachHighlightListeners();
@@ -248,7 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     let top = (y / nh * 100);
                     let width = (w / nw * 100);
                     let height = (h / nh * 100);
-
 
                     if (img.classList.contains('mirrored')) {
                         left = 100 - ((x + w) / nw * 100);
@@ -311,7 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let html = "<ul>";
             if (notes.length > 0) {
-
                 notes.sort((a, b) => {
                     const valA = parseInt(a.getAttribute('n')) || 0;
                     const valB = parseInt(b.getAttribute('n')) || 0;
@@ -332,12 +318,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-
         function getCurrentEdition() {
             const activeTab = document.querySelector('.bookmark.active');
             return activeTab ? activeTab.getAttribute('data-value') : 'diplomatic';
         }
-
 
         const bookmarks = document.querySelectorAll('.bookmark');
         bookmarks.forEach(bookmark => {
@@ -353,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function updateManuscriptPage() {
-
             manuscriptImg.style.opacity = 0;
             transcriptionText.style.opacity = 0;
 
@@ -376,7 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (manuscriptPrevBtn) manuscriptPrevBtn.disabled = currentManuscriptPage === 0;
                 if (manuscriptNextBtn) manuscriptNextBtn.disabled = currentManuscriptPage === manuscriptPages.length - 1;
-
             }, 300);
         }
 
@@ -398,6 +380,174 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// ============================================================
+// Guided tour popover logic (unico blocco, prima erano duplicati)
+// Mostra i popover solo quando la finestra è "fullscreen-like",
+// cioè quando viewport e schermo coincidono (entro una tolleranza).
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        const TOUR_FLAG = 'openleo_guided_seen';
+        const TOUR_STAGE = 'openleo_guided_stage';
+        let activePop = null;
+
+        // NOTA: niente più controllo "fullscreen reale" (F11): il tour va
+        // mostrato su qualsiasi schermo desktop, non solo in kiosk mode.
+        // isFullscreenLike() ora significa semplicemente "non è un
+        // dispositivo mobile/tablet", cioè l'opposto di isSmallScreen().
+        function isFullscreenLike() {
+            return !isSmallScreen();
+        }
+
+        function isSmallScreen() {
+            return (document.documentElement.clientWidth || window.innerWidth) <= 768;
+        }
+
+        function removeAllPopovers() {
+            document.querySelectorAll('.guided-popover').forEach(p => p.remove());
+            activePop = null;
+        }
+
+        // Se siamo su mobile/tablet, non facciamo nulla
+        if (isSmallScreen()) {
+            removeAllPopovers();
+            return;
+        }
+
+        function createPopover(text) {
+            if (isSmallScreen()) return null;
+
+            const pop = document.createElement('div');
+            pop.className = 'guided-popover';
+            pop.setAttribute('role', 'dialog');
+            pop.innerHTML = `<div class="guided-popover-text">${text}</div>`;
+            document.body.appendChild(pop);
+            setTimeout(() => pop.classList.add('show'), 10);
+            activePop = pop;
+            return pop;
+        }
+
+        function positionPopover(pop, target, placement = 'bottom') {
+            if (!pop || !target) return;
+
+            // Se nel frattempo non siamo più fullscreen-like, rimuovi e basta
+            if (!isFullscreenLike() || isSmallScreen()) {
+                removeAllPopovers();
+                return;
+            }
+
+            const rect = target.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            pop.style.maxWidth = '320px';
+            pop.setAttribute('data-placement', placement);
+
+            const popHeight = pop.offsetHeight || 60;
+            const left = Math.max(8, rect.left + scrollLeft);
+
+            if (placement === 'top') {
+                pop.style.left = left + 'px';
+                pop.style.top = (rect.top + scrollTop - popHeight - 12) + 'px';
+            } else {
+                pop.style.left = left + 'px';
+                pop.style.top = (rect.bottom + scrollTop + 10) + 'px';
+            }
+
+            // mantieni il popover dentro il viewport orizzontalmente
+            const popRect = pop.getBoundingClientRect();
+            const overflowRight = popRect.right - (window.innerWidth - 8);
+            if (overflowRight > 0) {
+                pop.style.left = Math.max(8, (left - overflowRight - 8)) + 'px';
+            }
+        }
+
+        function startTourOnHome() {
+            if (!isFullscreenLike() || isSmallScreen()) return;
+            const navLink = document.querySelector('#nav-collection') || document.querySelector('a[href="collection.html"]');
+            if (!navLink) return;
+
+            const pop = createPopover('click here to explore the collection');
+            if (!pop) return;
+            setTimeout(() => positionPopover(pop, navLink, 'bottom'), 50);
+
+            const onNavClick = () => {
+                removeAllPopovers();
+                sessionStorage.setItem(TOUR_STAGE, 'collectionClicked');
+            };
+            navLink.addEventListener('click', onNavClick, { once: true });
+        }
+
+        function showCardPopoverOnCollection() {
+            if (!isFullscreenLike() || isSmallScreen()) return;
+            const card = document.querySelector('#card-codex') || document.querySelector('a.collection-card[href="codex.html"]');
+            if (!card) return;
+
+            const pop = createPopover('click here to visualize the sample');
+            if (!pop) return;
+            setTimeout(() => positionPopover(pop, card, 'top'), 50);
+
+            const onCardClick = () => {
+                removeAllPopovers();
+                sessionStorage.setItem(TOUR_FLAG, 'true');
+                sessionStorage.setItem(TOUR_STAGE, 'completed');
+            };
+            card.addEventListener('click', onCardClick, { once: true });
+        }
+
+        // Decide quale popover (se ce n'è uno) andrebbe mostrato adesso,
+        // in base a pagina e stage del tour. Usata sia al caricamento
+        // sia quando si torna a schermo desktop dopo essere stati piccoli.
+        function evaluateTour() {
+            if (isSmallScreen()) return;
+            if (document.body.classList.contains('item-page')) return;
+            if (sessionStorage.getItem(TOUR_FLAG)) return;
+
+            if (!document.body.classList.contains('collection-page')) {
+                startTourOnHome();
+            } else {
+                const stage = sessionStorage.getItem(TOUR_STAGE);
+                if (stage === 'collectionClicked' || !stage) {
+                    showCardPopoverOnCollection();
+                }
+            }
+        }
+
+        function checkFullscreenState() {
+            if (!isFullscreenLike() || isSmallScreen()) {
+                removeAllPopovers();
+            } else if (!document.querySelector('.guided-popover')) {
+                // Siamo tornati a desktop e non c'è già un popover visibile:
+                // fai ricomparire quello giusto per lo stage corrente
+                evaluateTour();
+            }
+        }
+
+        // Resize con piccolo debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(checkFullscreenState, 150);
+        });
+
+        // Copre il caso di spostamento finestra tra monitor con risoluzioni
+        // diverse, che spesso non genera un evento "resize"
+        window.addEventListener('focus', checkFullscreenState);
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') checkFullscreenState();
+        });
+
+        // Se siamo già sulla pagina dell'item, il tour è considerato concluso
+        if (document.body.classList.contains('item-page')) {
+            sessionStorage.setItem(TOUR_FLAG, 'true');
+            sessionStorage.setItem(TOUR_STAGE, 'completed');
+            return;
+        }
+
+        evaluateTour();
+    } catch (e) {
+        console.error('Guided tour error', e);
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const commentaryToggle = document.getElementById('commentary-toggle');
@@ -411,5 +561,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-

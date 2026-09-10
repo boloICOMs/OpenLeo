@@ -575,6 +575,57 @@ nav.nav-hidden {
     color: #4E0B0B;
 }
 
+/* Guided tour popover styles */
+
+.guided-popover {
+    position: absolute;
+    z-index: 2000;
+    max-width: 320px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,247,242,0.98));
+    color: #13273F;
+    padding: 14px 16px;
+    border: 1px solid rgb(19, 39, 63);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(19,39,63,0.15);
+    font-size: 0.98rem;
+    line-height: 1.35;
+    border: 1px solid rgba(19,39,63,0.06);
+    transition: transform 180ms ease, opacity 180ms ease;
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.guided-popover.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.guided-popover::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    background: inherit;
+    border-left: 1px solid rgba(19,39,63,0.06);
+    border-top: 1px solid rgba(19,39,63,0.06);
+}
+
+.guided-popover[data-placement="top"]::after {
+    left: 22px;
+    bottom: -7px;
+}
+
+.guided-popover[data-placement="bottom"]::after {
+    left: 22px;
+    top: -7px;
+}
+
+.guided-popover .guided-popover-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+}
+
 
 .collection-grid {
     display: grid;
@@ -766,6 +817,72 @@ nav.nav-hidden {
     line-height: 1.8;
 
     color: var(--text-color);
+
+/* Guided tour popover styles */
+.guided-popover {
+    position: absolute;
+    z-index: 2000;
+    max-width: 320px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,247,242,0.98));
+    color: #13273F;
+    padding: 14px 16px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(19,39,63,0.15);
+    font-size: 0.98rem;
+    line-height: 1.35;
+    border: 1px solid rgba(19,39,63,0.06);
+    transition: transform 180ms ease, opacity 180ms ease;
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.guided-popover.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.guided-popover::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    background: inherit;
+    border-left: 1px solid rgba(19,39,63,0.06);
+    border-top: 1px solid rgba(19,39,63,0.06);
+}
+
+.guided-popover[data-placement="top"]::after {
+    left: 22px;
+    bottom: -7px;
+}
+
+.guided-popover[data-placement="bottom"]::after {
+    left: 22px;
+    top: -7px;
+}
+
+.guided-popover .guided-popover-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+}
+
+/* Responsive behaviors for small screens and tablets: hide popovers by default here (they will not be shown unless full-screen) */
+@media (max-width: 768px) {
+    /* On small screens hide guided popovers entirely */
+    .guided-popover {
+        display: none !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .guided-popover {
+        left: 10px !important;
+        right: 10px !important;
+        padding: 12px 12px !important;
+        font-size: 0.95rem !imporatant;
+    }
+}
 
     overflow-y: auto;
 
